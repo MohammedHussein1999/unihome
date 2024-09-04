@@ -1,0 +1,25 @@
+@tailwind base;
+
+@layer base {
+  html {
+    @apply text-neutral-800;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.custom-next-arrow::after,
+.custom-next-arrow::before {
+  @apply text-2xl  text-blue-600 !important;
+}
+.colorPAbout {
+  @apply text-[#FF911A] mr-3;
+}
+.bgColorPAbout {
+  @apply text-[#9c9c9c] rounded-md;
+}
