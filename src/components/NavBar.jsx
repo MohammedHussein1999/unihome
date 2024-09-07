@@ -14,14 +14,14 @@ export default function NavBar({
   // console.log(dataUser);
 
   return (
-    <div className="navbar bg-base-100 space-x-5 ">
+    <div className="space-x-5 navbar bg-base-100 ">
       <div className="flex-1 w-max">
-        <Link to="" className="btn btn-ghost text-xl">
+        <Link to="" className="text-xl btn btn-ghost">
           UniHome
         </Link>
       </div>
-      <div className="flex-none  ">
-        <ul className="menu menu-horizontal px-1">
+      <div className="flex-none ">
+        <ul className="px-1 menu menu-horizontal">
           <li>
             <Link to="">{link1}</Link>
           </li>
@@ -40,44 +40,44 @@ export default function NavBar({
         </ul>
       </div>
       <div>
-        <div className="indicator relative cursor-pointer group mr-3">
+        <div className="relative mr-3 cursor-pointer indicator group">
           <div className=" hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg  min-h-80 min-w-60 border-2	 bg-neutral-100">
-            <div className=" bg-white p-2 rounded-md  w-full">
+            <div className="w-full p-2 bg-white rounded-md ">
               <h2>Title</h2>
-              <p className=" text-slate-400 ">
+              <p className=" text-slate-400">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}
               </p>
             </div>
           </div>
-          <span className="indicator-item text-xs bg-blue-600   badge  text-white ">
+          <span className="text-xs text-white bg-blue-600 indicator-item badge ">
             2
           </span>
 
-          <IoIosNotificationsOutline className=" text-4xl" />
+          <IoIosNotificationsOutline className="text-4xl " />
         </div>
       </div>
-      <div className="group relative m-auto ">
-        <div className="avatar flex flex-row flex-nowrap justify-center items-center gap-1  ">
-          <div className=" w-16  h-16 rounded-full">
-            <img src={dataUser.img} alt="" />
+      <div className="relative m-auto group ">
+        <div className="flex flex-row items-center justify-center gap-1 avatar flex-nowrap ">
+          <div className="w-16 h-16 rounded-full ">
+            <img src={dataUser?.img} alt="" />
           </div>
           <span>
-            {dataUser.firstName}
-            <IoMdArrowDropdown className=" inline text-lg" />
+            {dataUser?.firstName}
+            <IoMdArrowDropdown className="inline text-lg " />
           </span>
         </div>
         <span className="absolute z-[75] top-16 min-w-36  bg-neutral-100   group-hover:block right-0  hidden">
-          <ul className=" list-none w-full ">
-            <li className=" bg-slate-200 py-3 px-1 hover:cursor-pointer hover:bg-blue-500  hover:text-white rounded-md  ">
-              <Link to='DD'>Dashboard</Link>
+          <ul className="w-full list-none ">
+            <li className="px-1 py-3 rounded-md bg-slate-200 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
+              <Link to="DD">Dashboard</Link>
             </li>
-            <li className=" bg-slate-200 py-3 px-1 hover:cursor-pointer hover:bg-blue-500  hover:text-white rounded-md  ">
+            <li className="px-1 py-3 rounded-md bg-slate-200 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
               <Link>My Teacher</Link>
             </li>
-            <li className=" bg-slate-200 py-3 px-1 hover:cursor-pointer hover:bg-blue-500  hover:text-white rounded-md  ">
+            <li className="px-1 py-3 rounded-md bg-slate-200 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
               <Link>Settings</Link>
             </li>
-            <li className=" bg-slate-200 py-3 px-1 hover:cursor-pointer hover:bg-blue-500  hover:text-white rounded-md  ">
+            <li className="px-1 py-3 rounded-md bg-slate-200 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
               <Link>LogOut</Link>
             </li>
           </ul>

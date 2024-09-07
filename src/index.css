@@ -23,3 +23,11 @@
 .bgColorPAbout {
   @apply text-[#9c9c9c] rounded-md;
 }
+
+.popup {
+  @apply fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-60 backdrop-blur-sm;
+}
+
+.popup-content {
+  @apply p-5 bg-white rounded-md min-w-[300px] w-[50vw] max-w-[500px] max-h-[90vh] overflow-auto;
+}

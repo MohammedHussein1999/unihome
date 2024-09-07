@@ -13,6 +13,8 @@ import App from "./App";
 import Dashboard from "./components/Dashboard";
 import Tetsh from "./components/Tetsh";
 import Log from "./components/Log";
+import TutorCard from "./components/InstructorDetail";
+import { SessionSinglePage } from "./components/SessionSinglePage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "Log",
         element: <Log />, // صفحة المعلومات
+      },
+      {
+        path: "teacher/:teacher_id",
+        element: <TutorCard />,
+      },
+      {
+        path: "session/:session_id",
+        element: <SessionSinglePage />,
       },
     ],
   },
