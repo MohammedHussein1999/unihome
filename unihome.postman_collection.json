@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "466d377d-fc6e-45fc-9ac6-139d22c0adbe",
+		"_postman_id": "1473252b-8193-4444-91b9-921137b8843d",
 		"name": "unihome",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "31612648"
+		"_exporter_id": "26713304",
+		"_collection_link": "https://warped-trinity-63742.postman.co/workspace/task~91b7122f-4545-4a0f-9ba8-82c9aa8f27ff/collection/26713304-1473252b-8193-4444-91b9-921137b8843d?action=share&source=collection_link&creator=26713304"
 	},
 	"item": [
 		{
@@ -84,7 +85,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MDg2Mzc0LCJleHAiOjE3MjQwODk5NzQsIm5iZiI6MTcyNDA4NjM3NCwianRpIjoiYnpydmhwcnRnUWRScnpRVSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ZNH5T_PIamvMeCs___KvlgsqTafXLfpIy9YPlF5LdvQ",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
 									"type": "string"
 								}
 							]
@@ -576,7 +577,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "tests3@gmail.com",
+									"value": "nessimboula@gmail.com",
 									"type": "default"
 								},
 								{
@@ -664,7 +665,7 @@
 								},
 								{
 									"key": "email",
-									"value": "tests3@gmail.com",
+									"value": "nessimboula@gmail.com",
 									"type": "text"
 								},
 								{
@@ -760,7 +761,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1MTExMjU3LCJleHAiOjE3MjUxMTQ4NTcsIm5iZiI6MTcyNTExMTI1NywianRpIjoiVXpITTdFTUNLOU5qS1REMCIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.5eKfvKy8nCpaMQ9FwTQ1rb1jwg5imx6TllZQt7OoM5U",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
 									"type": "string"
 								}
 							]
@@ -896,7 +897,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MTU5MzU5LCJleHAiOjE3MjQxNjI5NTksIm5iZiI6MTcyNDE1OTM1OSwianRpIjoidE1OMmRhYnQ0eWxPTGNQdCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QSCR88eQBWPtIvjl0IPNFNWKgedGQdiQVm-WzmShFkM",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
 									"type": "string"
 								}
 							]
@@ -911,7 +912,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"amount\": 100,\r\n\"description\": \"test\"\r\n}"
+							"raw": "{\r\n\"amount\": 100,\r\n\"description\": \"test\",\r\n\"type\":\"debit\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/auth/wallet/store",
@@ -1532,6 +1533,60 @@
 							],
 							"path": [
 								"newsletter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nessimboula@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/password/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"password",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nessimboula@gmail.com\",\r\n  \"token\": \"5fdbf559a088c9686456dd195428308d4e34a715575291f5fedada189cdf5b53\",\r\n  \"password\": \"newpassword\",\r\n  \"password_confirmation\": \"newpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/password/reset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"password",
+								"reset"
 							]
 						}
 					},
