@@ -1,35 +1,46 @@
-import React from 'react'
-import '../components/styles/framework.css'
-import '../components/styles/session.css'
-import img from '../components/assets/images/me.png'
+import React from "react";
+import "../components/styles/framework.css";
+import "../components/styles/session.css";
+import img from "../components/assets/images/me.png";
 import { FaWindowClose } from "react-icons/fa";
 import { IoEyeOutline, IoReload } from "react-icons/io5";
 import { MdOutlineSpeakerNotes } from "react-icons/md";
 import { MdAttachFile } from "react-icons/md";
-import { Link } from 'react-router-dom';
-import Timer from './timer/Timer';
+import { Link } from "react-router-dom";
+import Timer from "./timer/Timer";
 const Session = () => {
   return (
-    <section className='session'>
-      <div className='courses'>
-        <h1>We Share <br />
-          Our Thoughts On Design</h1>
-        <p>you don't have to struggle alone, you've got our assistance and help.</p>
+    <section className="session">
+      <div className="courses">
+        <h1>
+          We Share <br />
+          Our Thoughts On Design
+        </h1>
+        <p>
+          you don't have to struggle alone, you've got our assistance and help.
+        </p>
       </div>
-      <div class="wrapper d-grid gap-20">
-        <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-          <div class="intro p-20 d-flex space-between bg-eee">
+      <div className="wrapper d-grid gap-20">
+        <div className="welcome bg-white rad-10 txt-c-mobile block-mobile">
+          <div className="intro p-20 d-flex space-between bg-eee">
             <div>
-              <h2 class="m-0">Ibrahim</h2>
-              <p class="c-grey mt-2 mb-10">Egypt</p>
+              <h2 className="m-0">Ibrahim</h2>
+              <p className="c-grey mt-2 mb-10">Egypt</p>
             </div>
             <Timer />
           </div>
-          <img decoding="async" src={img} alt="" class="avatar" />
-          <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-            <div>Schedule <span class="d-block c-grey fs-14 mt-10">Programming</span></div>
-            <div>Status <span class="d-block c-grey fs-14 mt-10">Sunday, Augest 11,2024 English 60 minutes</span></div>
-
+          <img decoding="async" src={img} alt="" className="avatar" />
+          <div className="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+            <div>
+              Schedule{" "}
+              <span className="d-block c-grey fs-14 mt-10">Programming</span>
+            </div>
+            <div>
+              Status{" "}
+              <span className="d-block c-grey fs-14 mt-10">
+                Sunday, Augest 11,2024 English 60 minutes
+              </span>
+            </div>
           </div>
           <div className="w-full h-auto text-lightText px-4 text-center flex justify-center">
             <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -58,23 +69,35 @@ const Session = () => {
             </div>
           </div>
 
-          <div className='mt-4'>
-            <Link to="/details" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Join Lesson</Link>
+          <div className="mt-4">
+            <Link
+              to="/details"
+              className="visit d-block fs-14 bg-blue c-white w-fit btn-shape"
+            >
+              Join Lesson
+            </Link>
           </div>
         </div>
-        <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-          <div class="intro p-20 d-flex space-between bg-eee">
+        <div className="welcome bg-white rad-10 txt-c-mobile block-mobile">
+          <div className="intro p-20 d-flex space-between bg-eee">
             <div>
-              <h2 class="m-0">Ibrahim</h2>
-              <p class="c-grey mt-2 mb-10">Egypt</p>
+              <h2 className="m-0">Ibrahim</h2>
+              <p className="c-grey mt-2 mb-10">Egypt</p>
             </div>
             <Timer />
           </div>
-          <img decoding="async" src={img} alt="" class="avatar" />
-          <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-            <div>Schedule <span class="d-block c-grey fs-14 mt-10">Programming</span></div>
-            <div>Status <span class="d-block c-grey fs-14 mt-10">Sunday, Augest 11,2024 English 60 minutes</span></div>
-
+          <img decoding="async" src={img} alt="" className="avatar" />
+          <div className="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+            <div>
+              Schedule{" "}
+              <span className="d-block c-grey fs-14 mt-10">Programming</span>
+            </div>
+            <div>
+              Status{" "}
+              <span className="d-block c-grey fs-14 mt-10">
+                Sunday, Augest 11,2024 English 60 minutes
+              </span>
+            </div>
           </div>
           <div className="w-full h-auto text-lightText px-4 text-center flex justify-center">
             <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -103,23 +126,35 @@ const Session = () => {
             </div>
           </div>
 
-          <div className='mt-4'>
-            <Link to="/details" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Join Lesson</Link>
+          <div className="mt-4">
+            <Link
+              to="/details"
+              className="visit d-block fs-14 bg-blue c-white w-fit btn-shape"
+            >
+              Join Lesson
+            </Link>
           </div>
         </div>
-        <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-          <div class="intro p-20 d-flex space-between bg-eee">
+        <div className="welcome bg-white rad-10 txt-c-mobile block-mobile">
+          <div className="intro p-20 d-flex space-between bg-eee">
             <div>
-              <h2 class="m-0">Ibrahim</h2>
-              <p class="c-grey mt-2 mb-10">Egypt</p>
+              <h2 className="m-0">Ibrahim</h2>
+              <p className="c-grey mt-2 mb-10">Egypt</p>
             </div>
             <Timer />
           </div>
-          <img decoding="async" src={img} alt="" class="avatar" />
-          <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-            <div>Schedule <span class="d-block c-grey fs-14 mt-10">Programming</span></div>
-            <div>Status <span class="d-block c-grey fs-14 mt-10">Sunday, Augest 11,2024 English 60 minutes</span></div>
-
+          <img decoding="async" src={img} alt="" className="avatar" />
+          <div className="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+            <div>
+              Schedule{" "}
+              <span className="d-block c-grey fs-14 mt-10">Programming</span>
+            </div>
+            <div>
+              Status{" "}
+              <span className="d-block c-grey fs-14 mt-10">
+                Sunday, Augest 11,2024 English 60 minutes
+              </span>
+            </div>
           </div>
           <div className="w-full h-auto text-lightText px-4 text-center flex justify-center">
             <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -148,23 +183,35 @@ const Session = () => {
             </div>
           </div>
 
-          <div className='mt-4'>
-            <Link to="/details" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Join Lesson</Link>
+          <div className="mt-4">
+            <Link
+              to="/details"
+              className="visit d-block fs-14 bg-blue c-white w-fit btn-shape"
+            >
+              Join Lesson
+            </Link>
           </div>
         </div>
-        <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
-          <div class="intro p-20 d-flex space-between bg-eee">
+        <div className="welcome bg-white rad-10 txt-c-mobile block-mobile">
+          <div className="intro p-20 d-flex space-between bg-eee">
             <div>
-              <h2 class="m-0">Ibrahim</h2>
-              <p class="c-grey mt-2 mb-10">Egypt</p>
+              <h2 className="m-0">Ibrahim</h2>
+              <p className="c-grey mt-2 mb-10">Egypt</p>
             </div>
             <Timer />
           </div>
-          <img decoding="async" src={img} alt="" class="avatar" />
-          <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
-            <div>Schedule <span class="d-block c-grey fs-14 mt-10">Programming</span></div>
-            <div>Status <span class="d-block c-grey fs-14 mt-10">Sunday, Augest 11,2024 English 60 minutes</span></div>
-
+          <img decoding="async" src={img} alt="" className="avatar" />
+          <div className="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+            <div>
+              Schedule{" "}
+              <span className="d-block c-grey fs-14 mt-10">Programming</span>
+            </div>
+            <div>
+              Status{" "}
+              <span className="d-block c-grey fs-14 mt-10">
+                Sunday, Augest 11,2024 English 60 minutes
+              </span>
+            </div>
           </div>
           <div className="w-full h-auto text-lightText px-4 text-center flex justify-center">
             <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
@@ -193,14 +240,18 @@ const Session = () => {
             </div>
           </div>
 
-          <div className='mt-4'>
-            <Link to="/details" class="visit d-block fs-14 bg-blue c-white w-fit btn-shape">Join Lesson</Link>
+          <div className="mt-4">
+            <Link
+              to="/details"
+              className="visit d-block fs-14 bg-blue c-white w-fit btn-shape"
+            >
+              Join Lesson
+            </Link>
           </div>
         </div>
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Session
+export default Session;

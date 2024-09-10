@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1473252b-8193-4444-91b9-921137b8843d",
+		"_postman_id": "466d377d-fc6e-45fc-9ac6-139d22c0adbe",
 		"name": "unihome",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26713304",
-		"_collection_link": "https://warped-trinity-63742.postman.co/workspace/task~91b7122f-4545-4a0f-9ba8-82c9aa8f27ff/collection/26713304-1473252b-8193-4444-91b9-921137b8843d?action=share&source=collection_link&creator=26713304"
+		"_exporter_id": "31612648"
 	},
 	"item": [
 		{
@@ -37,6 +36,38 @@
 							],
 							"path": [
 								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quizs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/quizs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"quizs"
 							]
 						}
 					},
@@ -85,7 +116,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MDg2Mzc0LCJleHAiOjE3MjQwODk5NzQsIm5iZiI6MTcyNDA4NjM3NCwianRpIjoiYnpydmhwcnRnUWRScnpRVSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ZNH5T_PIamvMeCs___KvlgsqTafXLfpIy9YPlF5LdvQ",
 									"type": "string"
 								}
 							]
@@ -110,6 +141,47 @@
 							"path": [
 								"auth",
 								"wallets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU1NDQ4OTMsImV4cCI6MTcyNTU0ODQ5MywibmJmIjoxNzI1NTQ0ODkzLCJqdGkiOiJUZWRGUlNHcmxSS3JjVGxrIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GsILrIyDZ6UmVcmGOqNGQiO4Tc5NINYonS2y47rTMQc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/auth/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"profile"
 							]
 						}
 					},
@@ -207,7 +279,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODI0ODczLCJleHAiOjE3MjM4Mjg0NzMsIm5iZiI6MTcyMzgyNDg3MywianRpIjoiTEVHY3FOWlIxbDZwdTg1YyIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.fOAc1ju6RLT5hNvKGQfjEmSTmZQsD67E1ugSu8f1NEA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU3OTM1MTksImV4cCI6MTcyNTc5NzExOSwibmJmIjoxNzI1NzkzNTE5LCJqdGkiOiJDcE5reU54WlBYWjQ5T2MxIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.SvyawsxqX8i0SNJB0onhsCsW6SZqwq6buOyBSorDL88",
 									"type": "string"
 								}
 							]
@@ -577,7 +649,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "nessimboula@gmail.com",
+									"value": "tes17st@gmail.com",
 									"type": "default"
 								},
 								{
@@ -761,7 +833,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1MTExMjU3LCJleHAiOjE3MjUxMTQ4NTcsIm5iZiI6MTcyNTExMTI1NywianRpIjoiVXpITTdFTUNLOU5qS1REMCIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.5eKfvKy8nCpaMQ9FwTQ1rb1jwg5imx6TllZQt7OoM5U",
 									"type": "string"
 								}
 							]
@@ -897,7 +969,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU2NjQ0MDAsImV4cCI6MTcyNTY2ODAwMCwibmJmIjoxNzI1NjY0NDAwLCJqdGkiOiIwVURHU21jQWZ4T1ZYQXF2Iiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.N7wx1AG95vKJ8ZxqTF3fsymDIfhgxJkPFfGu3zCXm-8",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MTU5MzU5LCJleHAiOjE3MjQxNjI5NTksIm5iZiI6MTcyNDE1OTM1OSwianRpIjoidE1OMmRhYnQ0eWxPTGNQdCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QSCR88eQBWPtIvjl0IPNFNWKgedGQdiQVm-WzmShFkM",
 									"type": "string"
 								}
 							]
@@ -912,7 +984,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"amount\": 100,\r\n\"description\": \"test\",\r\n\"type\":\"debit\"\r\n}"
+							"raw": "{\r\n\"amount\": 100,\r\n\"description\": \"test\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/auth/wallet/store",
@@ -1097,7 +1169,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1MTEwNDgyLCJleHAiOjE3MjUxMTQwODIsIm5iZiI6MTcyNTExMDQ4MiwianRpIjoiZGpOZmRvaGhOcVhabnpiRiIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.j5J2OPdq2fVQ_WxJyY4Y8teZAx-uamgv0KzM7skoAM0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1NTM4NjQwLCJleHAiOjE3MjU1NDIyNDAsIm5iZiI6MTcyNTUzODY0MCwianRpIjoiZVByUXB6eHFXd2lnWUpBbCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.kZduSLEZ7pK8k174d6lpXSxAiI0LuyBujzB2_CCU_lg",
 									"type": "string"
 								}
 							]
@@ -1335,6 +1407,80 @@
 					"response": []
 				},
 				{
+					"name": "quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MzY4NTMxLCJleHAiOjE3MjQzNzIxMzEsIm5iZiI6MTcyNDM2ODUzMSwianRpIjoiWEd5TW9BTXFZNW9GT2VwRiIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.lIcGTh9ie1D--TWxLSJFsBMLH-Zt34GOjO1pkvnwZV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mid Term Quiz\",\r\n    \"course_id\": 1,\r\n    \"level_id\": 1,\r\n    \"questions\": [{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    },{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    }]\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/quiz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU4Mjk1MjcsImV4cCI6MTcyNTgzMzEyNywibmJmIjoxNzI1ODI5NTI3LCJqdGkiOiJwUkFZZFg5Rm5md1MwcmRWIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OXQddHyIEOInkQ7FEaL-RvtbC44vmNJNhwQwMqqv6mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"testings\": [\r\n        {\r\n        \"student_id\": 1,\r\n        \"quiz_id\": 1,\r\n        \"question_id\": 1,\r\n        \"answer_id\": 1\r\n      \r\n        },\r\n        {\r\n        \"student_id\": 1,\r\n        \"quiz_id\": 1,\r\n        \"question_id\": 1,\r\n        \"answer_id\": 1\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/testing",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "sessiontables",
 					"request": {
 						"auth": {
@@ -1385,7 +1531,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU3OTM1MTksImV4cCI6MTcyNTc5NzExOSwibmJmIjoxNzI1NzkzNTE5LCJqdGkiOiJDcE5reU54WlBYWjQ5T2MxIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.SvyawsxqX8i0SNJB0onhsCsW6SZqwq6buOyBSorDL88",
 									"type": "string"
 								}
 							]
@@ -1415,6 +1561,90 @@
 								"auth",
 								"session",
 								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelSession",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cancel/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cancel",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reschdeuled",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/reschdeule/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reschdeule",
+								"session"
 							]
 						}
 					},

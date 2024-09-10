@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
@@ -9,9 +11,6 @@
     @apply bg-neutral-800;
   }
 }
-
-@tailwind components;
-@tailwind utilities;
 
 .custom-next-arrow::after,
 .custom-next-arrow::before {
@@ -24,10 +23,9 @@
   @apply text-[#9c9c9c] rounded-md;
 }
 
-.popup {
-  @apply fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-60 backdrop-blur-sm;
+.linkTabs {
+  @apply text-2xl  border-none target:text-blue-400 text-black font-medium flex justify-center items-center     w-full capitalize  !important;
 }
-
-.popup-content {
-  @apply p-5 bg-white rounded-md min-w-[300px] w-[50vw] max-w-[500px] max-h-[90vh] overflow-auto;
-}
+/* .buttonIn{
+  @apply  space-x-2 rounded-md bg-blue-700 px-6 pb-2 pt-2.5 hover:bg-orange-400  text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] !important;
+} */

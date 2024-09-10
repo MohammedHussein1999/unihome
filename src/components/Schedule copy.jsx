@@ -2,7 +2,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useEffect, useRef, useState } from "react";
-import useClickOutside from "./hooks/useClickOutside";
+import useClickOutside from "../hooks/useClickOutside";
 
 const localizer = momentLocalizer(moment);
 

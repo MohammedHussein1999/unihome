@@ -21,7 +21,7 @@ const TutorCard = () => {
   const [error, setError] = useState(null);
   //* Refresh Component After make a change
   const [update, forceUpdate] = useReducer((x) => x + 1, 0);
-  const teacher_id = useParams().id;
+  const teacher_id = useParams().teacher_id;
   // const token = JSON.parse(localStorage.getItem("user")).access_token;
   useEffect(() => {
     const fetchData = async () => {

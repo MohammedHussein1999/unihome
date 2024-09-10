@@ -56,7 +56,7 @@ export default function About() {
   };
   return (
     <div>
-      <div className=" flex justify-center text-center  flex-nowrap flex-col items-center m-auto w-[70%] ">
+      <div className=" flex pt-5 justify-center text-center  flex-nowrap flex-col items-center m-auto w-[70%] ">
         <h2 className="mb-2 text-3xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
           What do students say about
           <span className=" text-[#FF911A] font-bold"> UniHome </span>?
@@ -171,7 +171,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <button class="btn mt-7 w-36 text-white bg-[#FF9800]">
+            <button className="btn mt-7 w-36 text-white bg-[#FF9800]">
               Apply New
             </button>
           </div>

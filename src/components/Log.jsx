@@ -20,6 +20,7 @@ export default function Log() {
       });
       let accessToken = res.data.access_token;
       let user = res.data.user;
+      console.log(user);
 
       Cookies.set("accessToken", accessToken);
       // console.log(res);
@@ -39,12 +40,14 @@ export default function Log() {
           timezone: user.timezone,
           type: user.type,
           whats: user.whats,
+          cv: user.cv,
+          country: user.country,
         })
       );
     } catch (error) {
       console.log(error);
     }
-    nav("/");
+    nav("/Home");
   };
 
   return (
@@ -128,7 +131,7 @@ export default function Log() {
                 type="email"
                 label="Email address"
                 size="lg"
-                vlaue={userName}
+                value={userName}
                 onChange={(e) => setUserName(String(e.target.value))}
                 className="mb-6"
               ></TEInput>
@@ -137,7 +140,7 @@ export default function Log() {
               <TEInput
                 type="password"
                 label="Password"
-                vlaue={password}
+                Value={password}
                 onChange={(e) => setPassword(String(e.target.value))}
                 className="mb-6"
                 size="lg"

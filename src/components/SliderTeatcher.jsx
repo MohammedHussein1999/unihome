@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
-import Slider from "react-slick";
-import { Suspense, useState } from "react";
-
-import Test from "./Test";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import InstructorCard from "./InstructorCard";
+import Test from "./Test";
 import axios from "axios";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -27,9 +26,11 @@ function SamplePrevArrow(props) {
     />
   );
 }
-export default function Tetsh() {
-  const [loading, setLoading] = useState(true);
+
+export default function SliderTeatcher() {
+  const InstructorCard = lazy(() => import("./InstructorCard"));
   const [dataApi, setDataApi] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const apiData = async () => {
     try {
@@ -41,6 +42,11 @@ export default function Tetsh() {
       setLoading(false); // Ensure loading state is set to false even if an error occurs
     }
   };
+
+  // Fetch data on component mount
+  useEffect(() => {
+    apiData();
+  }, []);
 
   const settings = {
     dots: true,
@@ -88,7 +94,8 @@ export default function Tetsh() {
       ) : (
         <Slider {...settings}>
           {dataApi.map((e) => (
-            <div
+            <Link
+              to="/TutorCard"
               key={e.id}
               className="transform my-20 hover:scale-105 translate duration-200 ease-in"
             >
@@ -103,7 +110,7 @@ export default function Tetsh() {
                   type={e.type}
                 />
               </Suspense>
-            </div>
+            </Link>
           ))}
         </Slider>
       )}

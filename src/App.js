@@ -1,74 +1,91 @@
 import axios from "axios";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { AccessToken } from "./AccessToken";
 
 export const apiWallet = createContext(null);
 
 export default function App() {
-  const [dataUse, setDataUse] = useState();
-  const loc = useLocation();
-  const accessToken = Cookies.get("accessToken");
+  const [dataUse, setDataUse] = useState([]);
+  const [refAPI, setRefAPI] = useState([]);
   const [show, setShow] = useState(false);
-  useEffect(() => {
-    apiData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
-    loc.pathname === "/Log" ? setShow(false) : setShow(true);
-  });
+  const loc = useLocation();
+  const nav = useNavigate();
 
-  const tokenR = async () => {
-    try {
-      let response = await axios.create(
-        "https://unih0me.com/api/auth/refresh",
-        {}, // يمكنك تركها فارغة إذا لم تكن هناك بيانات ليتم إرسالها
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`, // تأكد من إرسال التوكن الصحيح
-            "Content-Type": "application/json",
-          },
+  const token = Cookies.get("accessToken");
+  setInterval(() => {
+    const refreshToken = async () => {
+      if (token) {
+        try {
+          const res = await axios.post(
+            "https://unih0me.com/api/auth/refresh",
+            {},
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          Cookies.set("accessToken", res.data.access_token);
+          setRefAPI(res.data.access_token);
+        } catch (error) {
+          console.log("Error refreshing token:", error);
         }
-      );
-      let tt = response.data;
-      console.log(tt);
-    } catch (error) {
-      console.log();
-    }
-  };
-       setInterval(() => {
-    tokenR();
-  }, 3000);  
+      }
+    };
 
-  const apiData = async () => {
-    try {
-      let userData = await axios.get("https://unih0me.com/api/auth/wallets", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      });
-      setDataUse(userData.data.data.wallets);
-      console.log(userData.data.data.wallets);
-    } catch (error) {}
-  };
+    refreshToken();
+  }, 360000);
+
+  useEffect(() => {
+    
+    const getWalletData = async () => {
+      try {
+        const res = await axios.get("https://unih0me.com/api/auth/wallets", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setDataUse(res.data.data.wallets); // تخزين بيانات المحفظة
+      } catch (error) {
+        console.log("Error fetching wallet data:", error);
+      }
+    };
+
+    !token ? nav("/") : getWalletData();
+    loc.pathname === "/" ? setShow(false) : setShow(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loc.pathname, refAPI]);
 
   return (
-    <apiWallet.Provider value={{ dataUse }}>
-      <div className=" ">
-        {show && (
-          <NavBar link1="Find a Teacher" link3="About" link2="" link4="Chat" />
-        )}
-
-        <main className="p-4 min-h-screen">
-          <Outlet />
-        </main>
-
-        <Footer />
-      </div>
-    </apiWallet.Provider>
+    <>
+      <apiWallet.Provider value={{ dataUse, setDataUse }}>
+        <div>
+          {/* عرض الـ NavBar إذا كان show true */}
+          {show && (
+            <div className=" m-auto">
+              <NavBar
+                link1="Find a Teacher"
+                link2="Home"
+                link3="About"
+                link4="Chat"
+                showChat={true}
+                showLink1={true}
+              />
+            </div>
+          )}
+          <main className="min-h-screen  w-screen   bg-[#eee]">
+            <Outlet /> {/* لعرض المحتويات المخصصة حسب المسار */}
+          </main>
+          <Footer /> {/* الفوتر الثابت */}
+        </div>
+      </apiWallet.Provider>
+    </>
   );
 }

@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    tailwindcss: {},
-    autoprefixer: {},
   mode: "jit",
   content: [
     "./index.html",

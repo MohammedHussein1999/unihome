@@ -1,17 +1,22 @@
-import { Form } from "react-bootstrap";
-import { timezones } from "../assets/data/timezones.js";
+// import { timezones } from "../assets/data/timezones.js";
+export const timezones = [
+  { name: "UTC", label: "Coordinated Universal Time (UTC)" },
+  { name: "PST", label: "Pacific Standard Time (PST)" },
+  { name: "EST", label: "Eastern Standard Time (EST)" },
+  // Add more timezones as needed
+];
 
 const InputField = ({ label, type = "text", required = true }) => {
   return (
     <div className="flex items-center">
-      <Form.Label className="min-w-[160px]" htmlFor={label}>
+      <label className="min-w-[160px]" htmlFor={label}>
         {label} {required && <span className="text-red-700">*</span>}
-      </Form.Label>
-      <Form.Control
+      </label>
+      <input
         id={label}
         type={type}
-        required
-        className="border-[1px] rounded-sm outline-none shadow-sm pl-2 py-1 text-sm"
+        required={required}
+        className="border border-gray-300 rounded-sm outline-none shadow-sm pl-2 py-1 text-sm w-full"
       />
     </div>
   );
@@ -23,13 +28,13 @@ const handleSubmit = (e) => {
 
 const Settings = () => {
   return (
-    <div className="flex justify-start items-start w-full h-full pl-0 py-4">
-      <form className="space-y-6" onSubmit={handleSubmit}>
+    <div className=" p-6 h-max  min-h-[67vh]  w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <form className="space-y-6 m-auto" onSubmit={handleSubmit}>
         <InputField label="First Name" />
         <InputField label="Last Name" />
         <div className="flex items-center">
           <p className="min-w-[160px]">Gender</p>
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center h-max w-max justify-between gap-4">
             <label className="flex items-center gap-3" htmlFor="male">
               Male
               <input
@@ -41,7 +46,10 @@ const Settings = () => {
                 className="pl-1 py-1 text-sm"
               />
             </label>
-            <label className="flex items-center gap-3" htmlFor="female">
+            <label
+              className="flex justify-center items-center gap-3"
+              htmlFor="female"
+            >
               Female
               <input
                 name="gender"
@@ -58,10 +66,13 @@ const Settings = () => {
         <InputField label="WhatsApp" type="tel" required={false} />
         <InputField label="Country" />
         <div className="flex items-center">
-          <Form.Label className="min-w-[160px]" htmlFor="timezone">
+          <label className="min-w-[160px]" htmlFor="timezone">
             Timezone <span className="text-red-700">*</span>
-          </Form.Label>
-          <Form.Select id="timezone" size="sm">
+          </label>
+          <select
+            id="timezone"
+            className="border border-gray-300 rounded-sm outline-none shadow-sm pl-2 py-1 text-sm w-full"
+          >
             {timezones.map((zone, index) => {
               return (
                 <option key={index} value={zone.name}>
@@ -69,9 +80,12 @@ const Settings = () => {
                 </option>
               );
             })}
-          </Form.Select>
+          </select>
         </div>
-        <button className="bg-blue-700 text-white rounded-md p-2" type="submit">
+        <button
+          className="bg-blue-700 text-white rounded-md px-4 py-2"
+          type="submit"
+        >
           Save Changes
         </button>
       </form>
