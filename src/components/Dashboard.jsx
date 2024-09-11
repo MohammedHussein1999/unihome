@@ -18,9 +18,44 @@ import Instructors from "./Lessons";
 import Settings from "./Settings";
 import { SessionSinglePage } from "./SessionSinglePage";
 import TutorCard from "./InstructorDetail";
+import AddQuestions from "./Quiz/AddQuestions";
+import SubmitAnswer from "./Quiz/SubmitAnswer";
+import ResultQuestionForStudent from "./Quiz/ResultQuestionForStudent";
+import ResultQuestionForTeacher from "./Quiz/ResultQuestionForTeacher";
 
 export default function Dashboard() {
   const [basicActive, setBasicActive] = useState("tab1");
+  const [addQuestion, setAddQuestion] = useState(false);
+  const [submitAnswer, setSubmitAnswer] = useState(false);
+  const [resultQuestionForStudent, setResultQuestionForStudent] =
+    useState(false);
+  const [resultQuestionForTeacher, setResultQuestionForTeacher] =
+    useState(false);
+  let dataUser = JSON.parse(sessionStorage.getItem("user"));
+
+  useEffect(() => {
+    if (dataUser.type === "teacher") {
+      setAddQuestion(true);
+    }
+  }, [dataUser.type]);
+
+  useEffect(() => {
+    if (dataUser.type === "student") {
+      setSubmitAnswer(true);
+    }
+  }, [dataUser.type]);
+
+  useEffect(() => {
+    if (dataUser.type === "student") {
+      setResultQuestionForStudent(true);
+    }
+  }, [dataUser.type]);
+
+  useEffect(() => {
+    if (dataUser.type === "teacher") {
+      setResultQuestionForTeacher(true);
+    }
+  }, [dataUser.type]);
 
   const handleBasicClick = (value) => {
     if (value === basicActive) {
@@ -116,7 +151,10 @@ export default function Dashboard() {
                 <Settings />
               </TETabsPane>
               <TETabsPane show={basicActive === "tab6"}>
-                Tab 6 content
+                {addQuestion && <AddQuestions />}
+                {submitAnswer && <SubmitAnswer />}
+                {resultQuestionForStudent && <ResultQuestionForStudent />}
+                {resultQuestionForTeacher && <ResultQuestionForTeacher />}
               </TETabsPane>
               <TETabsPane show={basicActive === "Levels"}></TETabsPane>
             </TETabsContent>
