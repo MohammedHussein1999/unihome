@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import userCommentIcon from "../assets/images/user comment.com.png";
 import "./Reviews.css";
 import axios from "axios";
-export default function Reviews({ teacher }) {
+
+export default function Reviews(teacher) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [trueSendComment, setTrueSendComment] = useState(false);
   const [rating, setRating] = useState(0);
-  let user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
+  console.log();
+  let teach = teacher.teacher;
+  let user = JSON.parse(sessionStorage.getItem("user"));
+  // console.log(user);
   const [inputComment, setInputComment] = useState({
-    teacher_id: teacher?.id,
+    teach: teach,
     comment: "",
     rate: "",
   });
@@ -26,7 +29,7 @@ export default function Reviews({ teacher }) {
   async function getData() {
     try {
       let response = await axios.get(
-        `https://unih0me.com/api/reviews/${teacher?.id}`
+        `https://unih0me.com/api/reviews/${teach}`
       );
       setData(response.data.data.reviews);
     } catch (error) {
@@ -54,9 +57,11 @@ export default function Reviews({ teacher }) {
     }
   }
   function registerComment(e) {
-    let inputreviews = { ...inputComment };
-    inputreviews[e.target.name] = e.target.value;
-    setInputComment(inputreviews);
+    console.log(e);
+
+    /*  let inputreviews = { ...inputComment };
+    inputreviews[e?.target.name] = e.target.value;
+    setInputComment(inputreviews); */
   }
   function handleReview(e) {
     e.preventDefault();
@@ -115,7 +120,7 @@ export default function Reviews({ teacher }) {
             </>
           ))}
         </div>
-        {user?.user.type == "student" ? (
+        {user === "student" ? (
           <form onSubmit={handleReview} className="mt-5 d-flex">
             <input
               type="text"

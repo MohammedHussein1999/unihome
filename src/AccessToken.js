@@ -12,7 +12,7 @@ export function AccessToken() {
 
     if (!token) {
       // إذا لم يكن هناك توكن، توجيه المستخدم إلى صفحة تسجيل الدخول
-      navigate("/", { replace: true });
+      // navigate("/", { replace: true });
     } else {
       // تحقق من صلاحية التوكن من خلال طلب API
       axios
@@ -47,3 +47,5 @@ export function AccessToken() {
     </div>
   );
 }
+
+

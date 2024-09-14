@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { FaListUl } from "react-icons/fa";
+
 import { BsChatHeart } from "react-icons/bs";
 
 export default function NavBar({
@@ -23,7 +23,7 @@ export default function NavBar({
 
       <div className="navbar bg-white text-black  justify-between   space-x-5 flex flex-row ">
         <div className=" grow-0  w-max ">
-          <Link to="" className="btn shrink-0 btn-ghost text-xl">
+          <Link to="/Home" className="btn shrink-0 btn-ghost text-xl">
             UniHome
           </Link>
         </div>
@@ -32,7 +32,7 @@ export default function NavBar({
             <ul className="menu   menu-horizontal  max-md:flex max-md:flex-col  ">
               {showLink1 && (
                 <li className=" text-2xl font-bold ">
-                  <Link to="">{link1}</Link>
+                  <Link to="/TeacherS">{link1}</Link>
                 </li>
               )}
 
