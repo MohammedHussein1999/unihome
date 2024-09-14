@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   TETabs,
   TETabsContent,
@@ -9,71 +7,107 @@ import {
 } from "tw-elements-react";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useLocation, useParams } from "react-router-dom";
+import { apiWallet } from "../App";
 
 export default function Chat() {
   const [verticalActive, setVerticalActive] = useState("tab1");
   const [messages, setMessages] = useState([]);
+  const [getMessages, setGetMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const token = Cookies.get("accessToken");
   const user = JSON.parse(sessionStorage.getItem("user"));
+  const location = useLocation();
+  const urlID = new URLSearchParams(location.search);
+  const idTeacher = Number(urlID.get("id"));
+  const { userTable } = useContext(apiWallet);
 
-  // محاكاة إرسال الرسالة
+  // 🔥 إضافة فحص للتأكد من وجود البيانات قبل الاستخدام
+  let dataApi = userTable?.data?.data?.teachers || [];
+  let dataTeacher = dataApi?.find((i) => i.id === idTeacher);
+
   function sendMessage() {
     if (newMessage.trim()) {
       const newMsg = {
-        sender: "me",
+        sender: user.firstName,
         text: newMessage,
         timestamp: new Date().toLocaleTimeString(),
       };
       setMessages((prevMessages) => [...prevMessages, newMsg]);
 
-      let ms = () => {
-        axios
-          .post(
+      let ms = async () => {
+        try {
+          // 🔥 تحسين طريقة التعامل مع الأخطاء
+          const response = await axios.post(
             "https://unih0me.com/api/auth/chat/store",
             {
-              message: messages, // الرسالة المُرسلة
-              receiver_id: 91, // معرف المستلم (تأكد أن الرقم صحيح)
+              receiver_id: dataTeacher?.id,
+              message: newMessage,
             },
             {
               headers: {
-                "Content-Type": "application/json", // نوع المحتوى
-                Authorization: `Bearer ${token}`, // توكن المصادقة
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
               },
             }
-          )
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+          );
+          console.log(response);
+          setNewMessage(""); // 🔥 تصحيح إعادة ضبط الرسالة الجديدة
+        } catch (error) {
+          console.error(error);
+        }
       };
+
       ms();
-      console.log(messages);
-      setNewMessage("");
     }
   }
 
-  // محاكاة استقبال رسالة جديدة
+  // 🔥 تعديل طريقة معالجة البيانات في الماب لضمان التكرار الصحيح
+
+/*   dataApi.forEach((e) => {
+    let getMs = async () => {
+      try {
+        const res = await axios.get(
+          `https://unih0me.com/api/auth/chats/${e.id}`, // 🔥 استخدام id صحيح
+          {
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        // if (res.data.data.chats > 0) {
+          console.log(res.data.data.chats);
+        // }
+
+        // setGetMessages((prev) => [...prev, ...res.data.data.chats]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMs();
+  });
+
+  // 🔥 تحسين الشرط للتأكد من أن الطباعة تعمل كما هو متوقع
+  useEffect(() => {
+    // console.log(getMessages);
+    if (getMessages.length > 0) {
+      // console.log("Messages loaded:", getMessages);
+    }
+  }, [getMessages]);
+
   function receiveMessage(message) {
     const receivedMsg = {
-      sender: "other",
       text: message,
       timestamp: new Date().toLocaleTimeString(),
     };
     setMessages((prevMessages) => [...prevMessages, receivedMsg]);
   }
 
-  // مثال على استقبال رسالة جديدة بعد 3 ثوانٍ (يمكنك استبداله بآلية أخرى إذا لزم الأمر)
-  /*  useEffect(() => {
-    const interval = setInterval(() => {
-      receiveMessage("This is a simulated incoming message.");
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []); 
- */
+  // 🔥 التأكد من إعادة طباعة الرسائل المستلمة
+  useEffect(() => {
+    // console.log("Received messages:", getMessages);
+  }, [getMessages]); */
 
   const handleVerticalClick = (value) => {
     if (value === verticalActive) {
@@ -83,7 +117,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row ">
       <div className="min-w-40 shadow-lg border-black">
         <div>
           <input
@@ -97,22 +131,24 @@ export default function Chat() {
             <TETabsItem
               onClick={() => handleVerticalClick("tab1")}
               active={verticalActive === "tab1"}
-              className=""
             >
               <div>
                 <div className="flex flex-row justify-center gap-3 text-start w-full items-center">
                   <div className="chat-image avatar">
                     <div className="w-10 rounded-xl">
-                      <img alt="User Avatar" src={user.img} />
+                      <img alt="User Avatar" src={dataTeacher?.image} />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <h2 className="font-bold text-black">{user.firstName}</h2>
+                    <h2 className="font-bold text-black">
+                      {dataTeacher?.firstname}
+                    </h2>
                     <span className="opacity-60">message</span>
                   </div>
                 </div>
               </div>
             </TETabsItem>
+            ;
             <TETabsItem
               onClick={() => handleVerticalClick("tab2")}
               active={verticalActive === "tab2"}
@@ -134,12 +170,12 @@ export default function Chat() {
           </TETabs>
         </div>
       </div>
-      <div>
-        <div className="h-screen rounded-lg w-[75vw] md:w-full  bg-white">
+      <div className="w-4/5">
+        <div className="h-screen rounded-lg w-full md:w-full bg-white">
           <TETabsContent className="">
             <TETabsPane show={verticalActive === "tab1"} className="">
-              <div className="flex flex-col   justify-between  h-screen">
-                <div className="border-b flex px-3 flex-row  justify-start gap-3 text-start w-full items-center">
+              <div className="flex flex-col justify-between h-screen">
+                <div className="border-b flex px-3 flex-row justify-start gap-3 text-start w-full items-center">
                   <div className="chat-image avatar">
                     <div className="w-10 rounded-xl">
                       <img alt="User Avatar" src={user.img} />
@@ -155,7 +191,9 @@ export default function Chat() {
                     <div
                       key={index}
                       className={`chat ${
-                        msg.sender === "me" ? "chat-end" : "chat-start"
+                        msg.sender === user.firstName
+                          ? "chat-end"
+                          : "chat-start"
                       }`}
                     >
                       <div className="chat-image avatar">
@@ -174,8 +212,8 @@ export default function Chat() {
                     </div>
                   ))}
                 </div>
-                <div className=" ">
-                  <div className="p-3 w-full flex flex-row items-center gap-3 ">
+                <div className="">
+                  <div className="p-3 w-full flex flex-row items-center gap-3">
                     <input
                       type="text"
                       placeholder="Type here"

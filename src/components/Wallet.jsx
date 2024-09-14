@@ -47,7 +47,7 @@ export default function Wallet() {
               {dataUse.map((e, index) => (
                 <tr key={index}>
                   <th>{index + 1}</th>
-                  <td>id</td>
+                  <td>{e.id}</td>
                   <td>{e?.date}</td>
                   {e.type === "Credit" ? (
                     <td className=" text-green-600">EGP {e?.amount}</td>
@@ -56,7 +56,7 @@ export default function Wallet() {
                   )}
 
                   {e.type === "Debit" ? <td>{e?.amount}</td> : <td></td>}
-                  {e.type === "Balance" ? <td>{e?.amount}</td> : <td></td>}
+                  <td>{e?.totalAmount}</td>
 
                   <td>s</td>
                   <td>Blue</td>

@@ -1,5 +1,4 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
-import InstructorCard from "./InstructorCard";
 import Test from "./Test";
 import axios from "axios";
 import Slider from "react-slick";
@@ -36,9 +35,9 @@ export default function SliderTeatcher() {
     try {
       const res = await axios.get("https://unih0me.com/api/teachers");
       setDataApi(res.data.data.teachers);
+
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false); // Ensure loading state is set to false even if an error occurs
     }
   };
@@ -49,7 +48,7 @@ export default function SliderTeatcher() {
   }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 600,
     adaptiveHeight: true,
@@ -95,7 +94,7 @@ export default function SliderTeatcher() {
         <Slider {...settings}>
           {dataApi.map((e) => (
             <Link
-              to="/TutorCard"
+              to={`/TeaCherS/${e.id}`}
               key={e.id}
               className="transform my-20 hover:scale-105 translate duration-200 ease-in"
             >
