@@ -11,18 +11,21 @@ const DesignWallet = () => {
                 {/* Wallet Info Section */}
                 <div className="bg-white p-6 rounded-lg shadow mb-4">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-                        <div className="flex items-center">
+                        <div className="flex items-center mb-3 md:mb-0">
                             <GiWallet className="text-4xl text-orange-500 mr-3" />
                             <h1 className="text-3xl md:text-4xl font-bold text-gray-800">My Wallet</h1>
                         </div>
-                        <div className="text-xl text-gray-500 mt-2 md:mt-0 flex justify-center gap-2 items-center"><span className="text-orange-500 text-2xl">Hi </span>Ibrahim <span><MdWavingHand className="text-yellow-400" /></span></div>
+                        <div className="text-xl font-bold text-gray-500 flex justify-center gap-2 items-center"><span className="text-orange-500 text-2xl">Hi </span>Ibrahim <span><MdWavingHand className="text-yellow-300" /></span></div>
                     </div>
-                    <p className="text-gray-600 text-sm mb-3 md:mb-0 w-full md:w-1/2">
-                        To ensure accuracy and security, regularly review your wallet details by verifying transaction histories, checking balances, and confirming the authenticity of each entry. Stay vigilant for any discrepancies and update your information as needed to maintain full control over your account.
-                    </p>
-                    <div className="flex flex-col items-end">
-                        <div className="text-4xl font-bold text-green-500">EGP 900</div>
-                        <div className="text-sm font-semibold text-orange-500">Your Wallet Balance.</div>
+
+                    <div className="flex flex-col md:flex-row justify-between items-end">
+                        <p className="text-gray-600 text-sm mb-3 md:mb-0 w-full md:w-1/2">
+                            To ensure accuracy and security, regularly review your wallet details by verifying transaction histories, checking balances, and confirming the authenticity of each entry. Stay vigilant for any discrepancies and update your information as needed to maintain full control over your account.
+                        </p>
+                        <div className="flex flex-col items-end w-full md:w-1/2">
+                            <div className="text-4xl font-bold text-green-500">EGP 900</div>
+                            <div className="text-sm font-semibold text-orange-500">Your Wallet Balance.</div>
+                        </div>
                     </div>
                 </div>
 
@@ -50,7 +53,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 900</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4 flex justify-center items-center">
-                                    <div className="bg-green-600 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
+                                    <div className="bg-green-500 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
                                         <span className="text-white"><FaCheckCircle /></span>
                                         <span className="text-white">Done</span>
                                     </div>
@@ -64,7 +67,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 1150</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4 flex justify-center items-center">
-                                    <div className="bg-green-600 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
+                                    <div className="bg-green-500 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
                                         <span className="text-white"><FaCheckCircle /></span>
                                         <span className="text-white">Done</span>
                                     </div>
@@ -78,7 +81,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 1650</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4 flex justify-center items-center">
-                                    <div className="bg-green-600 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
+                                    <div className="bg-green-500 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
                                         <span className="text-white"><FaCheckCircle /></span>
                                         <span className="text-white">Done</span>
                                     </div>
@@ -92,7 +95,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 1500</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4 flex justify-center items-center">
-                                    <div className="bg-green-600 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
+                                    <div className="bg-green-500 flex justify-center items-center gap-2 py-1 px-3 rounded-3xl w-fit">
                                         <span className="text-white"><FaCheckCircle /></span>
                                         <span className="text-white">Done</span>
                                     </div>
@@ -106,7 +109,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 1300</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4">
-                                    <div className="flex justify-center items-center gap-2 bg-red-600 py-1 px-3 lg:px-1 rounded-3xl">
+                                    <div className="flex justify-center items-center gap-2 bg-red-500 py-1 px-3 lg:px-1 rounded-3xl">
                                         <span className="text-white"><FaCircleXmark /></span>
                                         <span className="text-white">UnCompleted</span>
                                     </div>
@@ -120,7 +123,7 @@ const DesignWallet = () => {
                                 <td className="px-2 py-4 font-bold text-blue-500">EGP 5000</td>
                                 <td className="px-6 py-4">s</td>
                                 <td className="px-6 py-4">
-                                    <div className="flex justify-center items-center gap-2 bg-red-600 py-1 px-3 lg:px-1 rounded-3xl">
+                                    <div className="flex justify-center items-center gap-2 bg-red-500 py-1 px-3 lg:px-1 rounded-3xl">
                                         <span className="text-white"><FaCircleXmark /></span>
                                         <span className="text-white">UnCompleted</span>
                                     </div>
