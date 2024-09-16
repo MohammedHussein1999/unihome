@@ -22,6 +22,7 @@ import Teacher from "./components/Teacher"; // تأكد من أن هذا الم�
 import TeacherS from "./components/TeacherS";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Support from "./components/Support";
 
 const routes = [
   {
@@ -64,6 +65,10 @@ const routes = [
         path: "register", // استخدم اسم متغير منطقي
         element: <Register />,
       },
+      {
+        path: "support", // Added support path here
+        element: <Support />,
+      }
     ],
   },
 ];
