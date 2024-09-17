@@ -23,6 +23,7 @@ import TeacherS from "./components/TeacherS";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Support from "./components/Support";
+import { Toaster } from "react-hot-toast";
 
 const routes = [
   {
@@ -83,5 +84,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
   </React.StrictMode>
 );
