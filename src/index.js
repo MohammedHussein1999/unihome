@@ -15,15 +15,13 @@ import About from "./components/About";
 import App from "./App";
 import Dashboard from "./components/Dashboard";
 import Tetsh from "./components/Tetsh";
-import Log from "./components/Log";
+
 import Chat from "./components/Chat";
-import TutorCard from "./components/InstructorDetail";
-import Teacher from "./components/Teacher"; // تأكد من أن هذا المسار صحيح
+
 import TeacherS from "./components/TeacherS";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Support from "./components/Support";
-import { Toaster } from "react-hot-toast";
+import Teacher2 from "./components/Teacher2";
 
 const routes = [
   {
@@ -59,17 +57,17 @@ const routes = [
         element: <TeacherS />,
       },
       {
+        path: "TeacherS/:Teacher2", // استخدم اسم متغير منطقي
+        element: <Teacher2 />,
+      },
+      /*   {
         path: "TeacherS/:Teacher", // استخدم اسم متغير منطقي
         element: <Teacher />,
-      },
+      }, */
       {
         path: "register", // استخدم اسم متغير منطقي
         element: <Register />,
       },
-      {
-        path: "support", // Added support path here
-        element: <Support />,
-      }
     ],
   },
 ];
@@ -84,9 +82,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
   </React.StrictMode>
 );
