@@ -65,9 +65,9 @@ export default function NavBar({
               <div className="order-last ">
                 <div>
                   <div className="indicator h-[42px] relative cursor-pointer  mr-3">
-                    <span className="indicator-item text-xs  bg-red-400   badge  text-white ">
+                    {/*      <span className="indicator-item text-xs  bg-red-400   badge  text-white ">
                       7
-                    </span>
+                    </span> */}
 
                     <Link to="Chat">
                       {/* <span className="mx-2"></span> */}
@@ -79,7 +79,7 @@ export default function NavBar({
             )}
           </div>
           <div className="">
-            <div className="indicator relative cursor-pointer group mr-3">
+            {/*    <div className="indicator relative cursor-pointer group mr-3">
               <div className=" hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg  min-h-80 min-w-60 border-2	 bg-neutral-100">
                 <div className=" bg-white p-2 rounded-md  w-full">
                   <h2>Title</h2>
@@ -93,7 +93,7 @@ export default function NavBar({
               </span>
 
               <IoIosNotificationsOutline className=" text-4xl" />
-            </div>
+            </div> */}
           </div>
 
           <div className="group grow-0 relative m-auto ">
