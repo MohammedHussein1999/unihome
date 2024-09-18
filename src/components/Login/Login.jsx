@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import imgLogin from "../assets/LogIN.png";
+import imgLogin from "../Assets/LogIN.png";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";

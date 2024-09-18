@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import imgRegister from "../assets/4794658-removebg-preview.png";
+import imgRegister from "../Assets/4794658-removebg-preview.png";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";

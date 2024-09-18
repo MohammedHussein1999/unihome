@@ -10,7 +10,6 @@ export default function Wallet() {
   if (!dataUse || dataUse.length === 0) {
     return <div>Loading wallet data...</div>; // عرض رسالة أو مؤشر أثناء التحميل
   }
-  console.log(dataUse[0].totalAmount);
 
   return (
     <div className=" text-black">
@@ -56,10 +55,10 @@ export default function Wallet() {
                   )}
 
                   {e.type === "Debit" ? <td>{e?.amount}</td> : <td></td>}
-                  <td>{e?.totalAmount}</td>
+                  <td>{e.amount}</td>
 
-                  <td>s</td>
-                  <td>Blue</td>
+                  <td>{e.description}</td>
+                  <td>{e.status}</td>
                 </tr>
               ))}
             </tbody>

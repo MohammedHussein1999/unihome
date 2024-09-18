@@ -11,8 +11,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { PiMonitorPlayFill } from "react-icons/pi";
 import Wallet from "./Wallet";
 import Settings from "./Settings";
-import { SessionSinglePage } from "./SessionSinglePage";
-import TutorCard from "./InstructorDetail";
+
 import AddQuestions from "./Quiz/AddQuestions";
 import SubmitAnswer from "./Quiz/SubmitAnswer";
 import ResultQuestionForStudent from "./Quiz/ResultQuestionForStudent";
@@ -169,11 +168,11 @@ export default function Dashboard() {
         <div className="w-full p-5">
           <TETabsContent>
             <TETabsPane show={basicActive === "tab1"}>
-              <SessionSinglePage />
+   
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab2"}>
-              <TutorCard />
+         
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab3"}>
