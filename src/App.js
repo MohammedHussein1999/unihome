@@ -2,6 +2,7 @@
 import axios from "axios";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
+import SupportIcon from "./components/SupportIcon";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -95,6 +96,7 @@ export default function App() {
           <main className="min-h-screen  w-full   bg-[#eee]">
             <Outlet /> {/* لعرض المحتويات المخصصة حسب المسار */}
           </main>
+          <SupportIcon />
           <Footer /> {/* الفوتر الثابت */}
         </div>
       </apiWallet.Provider>
