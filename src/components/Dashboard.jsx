@@ -11,8 +11,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 import { PiMonitorPlayFill } from "react-icons/pi";
 import Wallet from "./Wallet";
 import Settings from "./Settings";
-import { SessionSinglePage } from "./SessionSinglePage";
-import TutorCard from "./InstructorDetail";
+
 import AddQuestions from "./Quiz/AddQuestions";
 import SubmitAnswer from "./Quiz/SubmitAnswer";
 import ResultQuestionForStudent from "./Quiz/ResultQuestionForStudent";
@@ -20,7 +19,6 @@ import ResultQuestionForTeacher from "./Quiz/ResultQuestionForTeacher";
 import { GiWallet } from "react-icons/gi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import UniHomeLogo from './Assets/images/UniHome.png';
 
 
 export default function Dashboard() {
@@ -36,17 +34,26 @@ export default function Dashboard() {
   useEffect(() => {
     if (dataUser.type === "teacher") {
       setAddQuestion(true);
-      setResultQuestionForTeacher(true);
     }
   }, [dataUser.type]);
 
   useEffect(() => {
     if (dataUser.type === "student") {
       setSubmitAnswer(true);
+    }
+  }, [dataUser.type]);
+
+  useEffect(() => {
+    if (dataUser.type === "student") {
       setResultQuestionForStudent(true);
     }
   }, [dataUser.type]);
 
+  useEffect(() => {
+    if (dataUser.type === "teacher") {
+      setResultQuestionForTeacher(true);
+    }
+  }, [dataUser.type]);
 
   const handleBasicClick = (value) => {
     if (value === basicActive) {
@@ -108,7 +115,6 @@ export default function Dashboard() {
           aria-label="Sidebar"
         >
           <div className="h-full py-3 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-e-3xl">
-            <img src={UniHomeLogo} className="w-20 h-20 mx-auto mix-blend-multiply" alt="Logo" />
             <TETabs className="flex flex-col justify-start font-medium gap-4">
               <TETabsItem
                 onClick={() => handleBasicClick("tab1")}
@@ -162,11 +168,11 @@ export default function Dashboard() {
         <div className="w-full p-5">
           <TETabsContent>
             <TETabsPane show={basicActive === "tab1"}>
-              <SessionSinglePage />
+   
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab2"}>
-              <TutorCard />
+         
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab3"}>

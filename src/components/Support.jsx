@@ -19,6 +19,13 @@ const Support = () => {
         });
     };
 
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -26,7 +33,8 @@ const Support = () => {
             name: formData.name,
             email: formData.email,
             message: formData.message,
-            to_email: '' // Send to this email
+            logo_image: 'https://i.imgur.com/RlUqObZ.png', // Your UniHome logo URL
+            current_date: formattedDate // Pass the formatted date
         };
 
         emailjs

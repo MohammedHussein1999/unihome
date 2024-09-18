@@ -15,6 +15,7 @@ export default function NavBar({
   showChat,
 }) {
   let dataUser = JSON.parse(sessionStorage.getItem("user"));
+  console.log(dataUser);
 
 
   return (

@@ -1,45 +1,77 @@
-import React, { useEffect } from "react";
-import liveStream from "../../images/teacherLive.png";
+import React, { useEffect, useState } from "react";
+import "./Sesssion.css";
+import liveStream from "../../images/liveStream.png";
 import { FaLink } from "react-icons/fa6";
 import Avatar from "../../images/profileImage.png";
 import { AiOutlineMessage } from "react-icons/ai";
 
 const LiveStreamingPage = () => {
+  const [sideTimer, setSideTimer] = useState(60 * 60); // 60 minutes in seconds
+  const [mainTimer, setMainTimer] = useState(86400 * 2); // Example: 2 days in seconds
+
   useEffect(() => {
     // Disable outside scroll when component mounts
     document.body.style.overflow = "hidden";
 
+    // Side Timer Countdown (60 minutes)
+    const sideInterval = setInterval(() => {
+      setSideTimer((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+
+    // Main Timer Countdown (for days, hours, minutes, seconds)
+    const mainInterval = setInterval(() => {
+      setMainTimer((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+    }, 1000);
+
     // Clean up: Re-enable scrolling when the component unmounts
     return () => {
       document.body.style.overflow = "auto";
+      clearInterval(sideInterval);
+      clearInterval(mainInterval);
     };
   }, []);
 
+  // Format time from seconds to hours, minutes, seconds
+  const formatTime = (timeInSeconds) => {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  };
+
+  // Format time for main content countdown (days, hours, minutes, seconds)
+  const formatMainTime = (timeInSeconds) => {
+    const days = Math.floor(timeInSeconds / (24 * 3600));
+    const hours = Math.floor((timeInSeconds % (24 * 3600)) / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+    return `${String(days).padStart(2, "0")}:${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  };
+
   return (
-    <div className="fixed inset-0 bg-[#0009] text-gray-800 z-50 flex flex-col lg:flex-row overflow-y-auto">
+    <div className="liveStream">
       {/* Main Content Area */}
-      <main className="flex-grow flex justify-center items-center p-0 lg:p-6">
+      <main className="mainContent">
         <div className="bg-transparent w-full h-full rounded-none lg:rounded-lg relative">
           <div className="w-full h-full">
             {/* Session Start Background */}
-            {/* {!sessionStarted && ( */}
-            <div className="absolute inset-0 bg-black bg-opacity-50 lg:rounded-lg rounded-none flex flex-col items-center justify-center text-white">
+            <div className="live_screen">
               <div className="my-3 flex justify-center">
                 <div className="py-4 text-white rounded-lg text-md w-fit">
-                  <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner bg-[#0005]">
-                    10
+                  <span className="shadow_in">
+                    {formatMainTime(mainTimer).split(":")[0]} {/* Days */}
                   </span>
-                  <span>:</span>
-                  <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner bg-[#0005]">
-                    20
+                  <span className="mx-1 sm:mx-2">:</span>
+                  <span className="shadow_in">
+                    {formatMainTime(mainTimer).split(":")[1]} {/* Hours */}
                   </span>
-                  <span>:</span>
-                  <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner bg-[#0005]">
-                    44
+                  <span className="mx-1 sm:mx-2">:</span>
+                  <span className="shadow_in">
+                    {formatMainTime(mainTimer).split(":")[2]} {/* Minutes */}
                   </span>
-                  <span>:</span>
-                  <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner bg-[#0005]">
-                    55
+                  <span className="mx-1 sm:mx-2">:</span>
+                  <span className="shadow_in">
+                    {formatMainTime(mainTimer).split(":")[3]} {/* Seconds */}
                   </span>
                 </div>
               </div>
@@ -62,7 +94,7 @@ const LiveStreamingPage = () => {
       </main>
 
       {/* Chat Section */}
-      <aside className="w-full lg:w-1/4 bg-white p-4 lg:p-6 lg:rounded-s-3xl rounded-s-none shadow-lg h-full">
+      <aside className="side_content">
         <ul className="space-y-4">
           <div className="flex items-center space-x-4 mb-4 sm:mb-0">
             <div>
@@ -93,17 +125,11 @@ const LiveStreamingPage = () => {
           </div>
           <div className="my-2 flex justify-center">
             <div className="py-4 bg-white text-black rounded-lg text-md w-fit">
-              <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner ">
-                10
-              </span>
-              <span>:</span>
-              <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner ">
-                20
-              </span>
-              <span>:</span>
-              <span className="p-4 mx-1 sm:mx-2 rounded-xl shadow-black shadow-inner ">
-                44
-              </span>
+              <span className="shadow_in">{formatTime(sideTimer).split(":")[0]}</span>
+              <span className="mx-1 sm:mx-2">:</span>
+              <span className="shadow_in">{formatTime(sideTimer).split(":")[1]}</span>
+              <span className="mx-1 sm:mx-2">:</span>
+              <span className="shadow_in">{formatTime(sideTimer).split(":")[2]}</span>
             </div>
           </div>
           <div className="my-3 flex justify-start items-center gap-3">

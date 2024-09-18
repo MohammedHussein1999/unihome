@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import userCommentIcon from "../assets/images/user comment.com.png";
+import userCommentIcon from "../Assets/images/user comment.com.png";
 import "./Reviews.css";
 import axios from "axios";
 

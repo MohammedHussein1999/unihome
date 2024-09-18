@@ -103,7 +103,7 @@ export default function Footer() {
           {/* Footer Bottom */}
           <div className="sm:flex sm:items-center sm:justify-between pe-16">
             <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-              © 2023 <Link to="" className="hover:underline font-bold">UniHome™</Link>. All Rights Reserved.
+              © 2024 <Link to="" className="hover:underline font-bold">UniHome™</Link>. All Rights Reserved.
             </span>
 
             {/* Social Icons */}
