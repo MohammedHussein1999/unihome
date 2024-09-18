@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./Sesssion.css";
 import { FaLink } from "react-icons/fa6";
 import { ImLoop2 } from "react-icons/im";
 import { MdAirplay } from "react-icons/md";
@@ -7,6 +8,29 @@ import { AiOutlineMessage } from "react-icons/ai";
 import { RiCloseLargeFill } from "react-icons/ri";
 
 const LessonCard = () => {
+  // Initial countdown time in seconds (e.g., 10 days, 20 hours, etc.)
+  const initialTime = 102 * 24 * 60 * 60 + 20 * 60 * 60 + 44 * 60 + 55; // Example: 10 days, 20 hours, 44 minutes, 55 seconds
+
+  const [timeLeft, setTimeLeft] = useState(initialTime);
+
+  // Countdown effect
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timerId = setInterval(() => {
+        setTimeLeft(timeLeft - 1);
+      }, 1000);
+
+      // Cleanup interval when the component unmounts
+      return () => clearInterval(timerId);
+    }
+  }, [timeLeft]);
+
+  // Convert time left in seconds to days, hours, minutes, and seconds
+  const days = Math.floor(timeLeft / (24 * 60 * 60));
+  const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
+  const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
+  const seconds = timeLeft % 60;
+
   return (
     <div className="p-4">
       <div className="bg-white rounded-lg shadow-md px-6 py-10 mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl mt-6 relative">
@@ -39,21 +63,13 @@ const LessonCard = () => {
           {/* Countdown Timer */}
           <div className="my-3 flex justify-center">
             <div className="mx-1 sm:mx-2 py-4 bg-white text-black rounded-lg text-md w-full sm:w-auto flex items-center justify-center space-x-2">
-              <span className="p-2 sm:p-4 rounded-xl shadow-black shadow-inner text-lg">
-                10
-              </span>
+              <span className="shadow_in">{days}</span>
               <span className="mx-1 sm:mx-2">:</span>
-              <span className="p-2 sm:p-4 rounded-xl shadow-black shadow-inner text-lg">
-                20
-              </span>
+              <span className="shadow_in">{hours}</span>
               <span className="mx-1 sm:mx-2">:</span>
-              <span className="p-2 sm:p-4 rounded-xl shadow-black shadow-inner text-lg">
-                44
-              </span>
+              <span className="shadow_in">{minutes}</span>
               <span className="mx-1 sm:mx-2">:</span>
-              <span className="p-2 sm:p-4 rounded-xl shadow-black shadow-inner text-lg">
-                55
-              </span>
+              <span className="shadow_in">{seconds}</span>
             </div>
           </div>
         </div>
