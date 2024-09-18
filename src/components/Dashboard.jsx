@@ -20,57 +20,95 @@ import { GiWallet } from "react-icons/gi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
+import axios from "axios";
+
+import Cookies from "js-cookie";
+import RoutingSession from "./Sessions/RoutingSession";
+import DesignWallet from "./Wallet/DesignWallet";
 
 export default function Dashboard() {
   const [basicActive, setBasicActive] = useState("tab1");
   const [addQuestion, setAddQuestion] = useState(false);
+  const [dataSession, setDataSession] = useState([]);
+  const [student, setStudent] = useState([]);
+  const [sessionsStudent, setSessionsStudent] = useState([]);
   const [submitAnswer, setSubmitAnswer] = useState(false);
   const [resultQuestionForStudent, setResultQuestionForStudent] =
     useState(false);
   const [resultQuestionForTeacher, setResultQuestionForTeacher] =
     useState(false);
   let dataUser = JSON.parse(sessionStorage.getItem("user"));
-
-  useEffect(() => {
-    if (dataUser.type === "teacher") {
-      setAddQuestion(true);
-    }
-  }, [dataUser.type]);
+  const token = Cookies.get("accessToken");
 
   useEffect(() => {
     if (dataUser.type === "student") {
       setSubmitAnswer(true);
-    }
-  }, [dataUser.type]);
-
-  useEffect(() => {
-    if (dataUser.type === "student") {
       setResultQuestionForStudent(true);
-    }
-  }, [dataUser.type]);
-
-  useEffect(() => {
-    if (dataUser.type === "teacher") {
+    } else {
       setResultQuestionForTeacher(true);
+      setAddQuestion(true);
     }
   }, [dataUser.type]);
 
   const handleBasicClick = (value) => {
+    closeSidebar();
     if (value === basicActive) {
       return;
     }
     setBasicActive(value);
-    closeSidebar();
   };
-
+  console.log(dataSession);
   const closeSidebar = () => {
-    document.getElementById("default-sidebar").classList.add("-translate-x-full");
+    document
+      .getElementById("default-sidebar")
+      .classList.add("-translate-x-full");
+    document
+      .getElementById("default-sidebar")
+      .classList.remove("transform-none");
   };
 
   const openSidebar = () => {
-    document.getElementById("default-sidebar").classList.remove("-translate-x-full");
+    document
+      .getElementById("default-sidebar")
+      .classList.remove("-translate-x-full");
   };
+  useEffect(() => {
+    let sessions = async () => {
+      try {
+        let response = await axios.get(
+          "https://unih0me.com/api/auth/sessions",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
+        setDataSession(response.data.data.sessions);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    sessions();
+  }, []);
+  useEffect(() => {
+    dataSession.map(async (e) => {
+      const userId = dataUser === "student" ? e.student_id : e.teacher_id;
+      let request = await axios.get(
+        `https://unih0me.com/api/teacher/${userId}`,
+        {
+          headers: {
+            "Content-Type": "application",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setStudent(request.data.data.user);
+      setSessionsStudent(request.data.data.user.sessions);
+    });
+  }, [dataSession]);
   return (
     <>
       <div className="flex flex-col min-h-screen bg-[#eee]">
@@ -82,7 +120,6 @@ export default function Dashboard() {
           className="inline-flex gap-5 w-fit items-center mt-4 ms-4 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           onClick={() => openSidebar()}
         >
-
           <span className="sr-only">Open sidebar</span>
           <svg
             className="w-10 h-10 bg-orange-500 p-1 rounded-xl text-white"
@@ -101,7 +138,10 @@ export default function Dashboard() {
             <span className="me-3">
               <FontAwesomeIcon
                 className="fa-solid fa-poo-bolt fa-beat-fade"
-                style={{ '--fa-beat-fade-opacity': 0.5, '--fa-beat-fade-scale': 1.25 }}
+                style={{
+                  "--fa-beat-fade-opacity": 0.5,
+                  "--fa-beat-fade-scale": 1.25,
+                }}
                 icon={faCircleArrowLeft}
               />
             </span>
@@ -114,7 +154,7 @@ export default function Dashboard() {
           className="fixed bottom-0 left-0 z-40 w-56 md:pt-28 pt-24 h-screen transition-transform -translate-x-full sm:translate-x-0"
           aria-label="Sidebar"
         >
-          <div className="h-full py-3 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-e-3xl">
+          <div className="h-full py-3  bg-gray-50 dark:bg-gray-800 rounded-e-3xl">
             <TETabs className="flex flex-col justify-start font-medium gap-4">
               <TETabsItem
                 onClick={() => handleBasicClick("tab1")}
@@ -168,19 +208,15 @@ export default function Dashboard() {
         <div className="w-full p-5">
           <TETabsContent>
             <TETabsPane show={basicActive === "tab1"}>
-   
+              <RoutingSession Student={student} Session={sessionsStudent} />
             </TETabsPane>
 
-            <TETabsPane show={basicActive === "tab2"}>
-         
-            </TETabsPane>
+            <TETabsPane show={basicActive === "tab2"}></TETabsPane>
 
-            <TETabsPane show={basicActive === "tab3"}>
-              Tab 3 content
-            </TETabsPane>
+            <TETabsPane show={basicActive === "tab3"}>Tab 3 content</TETabsPane>
 
             <TETabsPane show={basicActive === "tab4"}>
-              <Wallet />
+              <DesignWallet />
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab5"}>

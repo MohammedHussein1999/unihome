@@ -12,7 +12,26 @@
     @apply bg-neutral-800;
   }
 }
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 .custom-next-arrow::after,
 .custom-next-arrow::before {
   @apply text-2xl text-blue-600 !important;
@@ -41,7 +60,7 @@
 }
 
 .submitSupport {
-  @apply bg-orange-500 text-white py-3 px-6 rounded-3xl hover:bg-orange-700 transition-all duration-500 !important
+  @apply bg-orange-500 text-white py-3 px-6 rounded-3xl hover:bg-orange-700 transition-all duration-500 !important;
 }
 
 /* .buttonIn{
@@ -49,13 +68,13 @@
 } */
 
 @font-face {
-  font-family: 'Jomhuria-R';
-  src: url('./components/Assets/fonts/Jomhuria-Regular.ttf');
+  font-family: "Jomhuria-R";
+  src: url("./components/Assets/fonts/Jomhuria-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'AntonSC-R';
-  src: url('./components/Assets/fonts/Anton_SC/AntonSC-Regular.ttf');
+  font-family: "AntonSC-R";
+  src: url("./components/Assets/fonts/Anton_SC/AntonSC-Regular.ttf");
 }
 
 /**************Shadow of Quiz Card**************/
@@ -73,44 +92,32 @@
 
 @keyframes shadow-throb {
   0% {
-    box-shadow:
-      0px 0px 0px 0px orange,
-      0px 0px 0px 0px orange,
+    box-shadow: 0px 0px 0px 0px orange, 0px 0px 0px 0px orange,
       0px 0px 0px 0px orange;
   }
 
   20% {
-    box-shadow:
-      0px 0px 0px 2px orange,
-      0px 0px 0px 2px orange,
+    box-shadow: 0px 0px 0px 2px orange, 0px 0px 0px 2px orange,
       0px 0px 0px 2px orange;
   }
 
   40% {
-    box-shadow:
-      0px 0px 0px 4px orange,
-      0px 0px 0px 4px orange,
+    box-shadow: 0px 0px 0px 4px orange, 0px 0px 0px 4px orange,
       0px 0px 0px 4px orange;
   }
 
   60% {
-    box-shadow:
-      0px 0px 4px 6px orange,
-      0px 0px 4px 6px orange,
+    box-shadow: 0px 0px 4px 6px orange, 0px 0px 4px 6px orange,
       0px 0px 4px 6px orange;
   }
 
   80% {
-    box-shadow:
-      0px 0px 6px 6px orange,
-      0px 0px 6px 6px orange,
+    box-shadow: 0px 0px 6px 6px orange, 0px 0px 6px 6px orange,
       0px 0px 6px 6px orange;
   }
 
   100% {
-    box-shadow:
-      0px 0px 6px 6px orange,
-      0px 0px 6px 6px orange,
+    box-shadow: 0px 0px 6px 6px orange, 0px 0px 6px 6px orange,
       0px 0px 6px 6px orange;
   }
 }

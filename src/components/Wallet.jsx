@@ -4,11 +4,10 @@ import { apiWallet } from "../App";
 export default function Wallet() {
   const { dataUse } = useContext(apiWallet);
   let nameUser = JSON.parse(sessionStorage.getItem("user"));
-  // console.log(dataUse);
 
-  // التحقق من وجود بيانات المحفظة قبل محاولة الوصول إليها
+
   if (!dataUse || dataUse.length === 0) {
-    return <div>Loading wallet data...</div>; // عرض رسالة أو مؤشر أثناء التحميل
+    return <div>Ned Amount or Loading wallet data...</div>; // عرض رسالة أو مؤشر أثناء التحميل
   }
 
   return (

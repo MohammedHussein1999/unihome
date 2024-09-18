@@ -42,40 +42,6 @@
 					"response": []
 				},
 				{
-					"name": "chatUsers",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjY0MjI3NTYsImV4cCI6MTcyNjQyNjM1NiwibmJmIjoxNzI2NDIyNzU2LCJqdGkiOiJEMHBTTEZZNlNVU3pFeXBTIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.sYJZRwkp52QdE3Non0Z0Kjx19ARkihYGpaDm0rjdtLs",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/auth/chat/users",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"auth",
-								"chat",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "quizs",
 					"request": {
 						"auth": {
@@ -867,7 +833,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU5NzU5NjYsImV4cCI6MTcyNTk3OTU2NiwibmJmIjoxNzI1OTc1OTY2LCJqdGkiOiJSWDNBVTFucFhpdDVpNjZqIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XTHFhZF2vglXhkc4Q55etxJsLdqXg5XzCCqj-gDipuc",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1MTExMjU3LCJleHAiOjE3MjUxMTQ4NTcsIm5iZiI6MTcyNTExMTI1NywianRpIjoiVXpITTdFTUNLOU5qS1REMCIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.5eKfvKy8nCpaMQ9FwTQ1rb1jwg5imx6TllZQt7OoM5U",
 									"type": "string"
 								}
 							]
@@ -1178,21 +1144,6 @@
 									"key": "proficiency_id",
 									"value": "fluent",
 									"type": "text"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "",
-									"value": "",
-									"type": "text"
 								}
 							]
 						},
@@ -1218,7 +1169,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU5NzY0MTksImV4cCI6MTcyNTk4MDAxOSwibmJmIjoxNzI1OTc2NDE5LCJqdGkiOiJCTE5kS3JBN2V5OGM1R3M0Iiwic3ViIjoiNTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.DhHZ5_AexO4NiMNeRa7Lbl6IdROj1zh6zBxEvKZkjdI",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1NTM4NjQwLCJleHAiOjE3MjU1NDIyNDAsIm5iZiI6MTcyNTUzODY0MCwianRpIjoiZVByUXB6eHFXd2lnWUpBbCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.kZduSLEZ7pK8k174d6lpXSxAiI0LuyBujzB2_CCU_lg",
 									"type": "string"
 								}
 							]
@@ -1361,21 +1312,6 @@
 									"key": "proficiency_id",
 									"value": "fluent",
 									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "Egypt",
-									"type": "text"
-								},
-								{
-									"key": "timezone",
-									"value": "cairo",
-									"type": "text"
-								},
-								{
-									"key": "source",
-									"value": "social",
-									"type": "text"
 								}
 							]
 						},
@@ -1493,7 +1429,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Mid Term Quiz\",\r\n    \"course_id\": 1,\r\n    \"level_id\": 1,\r\n    \"session\": 1,\r\n    \"questions\": [{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    },{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    }]\r\n}"
+							"raw": "{\r\n    \"title\": \"Mid Term Quiz\",\r\n    \"course_id\": 1,\r\n    \"level_id\": 1,\r\n    \"questions\": [{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    },{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    }]\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/quiz",
@@ -1515,7 +1451,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1ODMwMDIwLCJleHAiOjE3MjU4MzM2MjAsIm5iZiI6MTcyNTgzMDAyMCwianRpIjoiU2JwMEQxeWVaS3luaHRsZCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.-YpDEJ_aMrBG11ce-VU257teVECKotHAi9m3lsuSqpo",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU4Mjk1MjcsImV4cCI6MTcyNTgzMzEyNywibmJmIjoxNzI1ODI5NTI3LCJqdGkiOiJwUkFZZFg5Rm5md1MwcmRWIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OXQddHyIEOInkQ7FEaL-RvtbC44vmNJNhwQwMqqv6mI",
 									"type": "string"
 								}
 							]
@@ -1881,99 +1817,6 @@
 							"path": [
 								"password",
 								"reset"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "socials",
-			"item": [
-				{
-					"name": "redirect-auth-google",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/auth/google",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"auth",
-								"google"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "handle-callback",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/auth/google/callback",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"auth",
-								"google",
-								"callback"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "redirect-auth-facebook",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"accept": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/auth/facebook",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"auth",
-								"facebook"
 							]
 						}
 					},

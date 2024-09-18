@@ -6,37 +6,48 @@ import { MdAirplay } from "react-icons/md";
 import Avatar from "../../images/profileImage.png";
 import { AiOutlineMessage } from "react-icons/ai";
 import { RiCloseLargeFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
-const LessonCard = () => {
-  // Initial countdown time in seconds (e.g., 10 days, 20 hours, etc.)
-  const initialTime = 102 * 24 * 60 * 60 + 20 * 60 * 60 + 44 * 60 + 55; // Example: 10 days, 20 hours, 44 minutes, 55 seconds
+const LessonCard = (Session) => {
+  let dateSection = new Date(`${Session.Session.date} ${Session.Session.time}`);
+  let dateNew = new Date().getTime();
+  let DateAll = dateSection - dateNew;
+  const [timeLeft, setTimeLeft] = useState(DateAll > 0 ? DateAll : 0);
 
-  const [timeLeft, setTimeLeft] = useState(initialTime);
-
+  // console.log(Session);
   // Countdown effect
+
   useEffect(() => {
     if (timeLeft > 0) {
       const timerId = setInterval(() => {
-        setTimeLeft(timeLeft - 1);
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft > 0) {
+            return prevTimeLeft - 1000; // طرح 1000 مللي ثانية
+          } else {
+            clearInterval(timerId);
+            return 0; // تأكد من عدم الذهاب إلى قيم سالبة
+          }
+        });
       }, 1000);
 
-      // Cleanup interval when the component unmounts
-      return () => clearInterval(timerId);
+      return () => clearInterval(timerId); // تنظيف المؤقت عند الخروج
     }
   }, [timeLeft]);
 
   // Convert time left in seconds to days, hours, minutes, and seconds
-  const days = Math.floor(timeLeft / (24 * 60 * 60));
-  const hours = Math.floor((timeLeft % (24 * 60 * 60)) / (60 * 60));
-  const minutes = Math.floor((timeLeft % (60 * 60)) / 60);
-  const seconds = timeLeft % 60;
 
+  const days = Math.floor(timeLeft / (1000 * 24 * 60 * 60));
+  const hours = Math.floor(
+    (timeLeft % (1000 * 24 * 60 * 60)) / (1000 * 60 * 60)
+  );
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
   return (
-    <div className="p-4">
+    <div id={Session.Session.id} className="p-4">
       <div className="bg-white rounded-lg shadow-md px-6 py-10 mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl mt-6 relative">
         {/* Date Styled Inside the Card */}
         <div className="absolute top-0 left-0 p-2 bg-gray-200 text-gray-600 rounded-br-lg shadow-md">
-          <p className="text-sm font-semibold">Date: April 9, 2025</p>
+          <p className="text-sm font-semibold">Date: {Session.Session.date}</p>
         </div>
 
         {/* User Info & Countdown Timer */}
@@ -54,9 +65,11 @@ const LessonCard = () => {
             <div>
               {/* User Name & Country */}
               <h2 className="text-gray-800 font-bold text-lg sm:text-xl lg:text-2xl">
-                Ibrahim
+                {Session.StudentData.firstname} {Session.StudentData.lastname}
               </h2>
-              <p className="text-gray-500 text-sm lg:text-base">Egypt</p>
+              <p className="text-gray-500 text-sm lg:text-base">
+                {Session.StudentData.country}
+              </p>
             </div>
           </div>
 
@@ -70,6 +83,7 @@ const LessonCard = () => {
               <span className="shadow_in">{minutes}</span>
               <span className="mx-1 sm:mx-2">:</span>
               <span className="shadow_in">{seconds}</span>
+              {/* <span className="shadow_in"> {Session.Session.time}</span> */}
             </div>
           </div>
         </div>
@@ -79,12 +93,19 @@ const LessonCard = () => {
           <div className="text-center">
             <h3 className="text-gray-500 text-sm lg:text-base">Details</h3>
             <p className="text-gray-800 font-medium">
-              <span className="text-black font-bold">Sunday</span>, August 11, 2024
+              <span className="text-black font-bold">
+                {Session.Session.date}
+              </span>
+              {}
             </p>
           </div>
           <div className="text-center">
             <h3 className="text-gray-500 text-sm lg:text-base">Status</h3>
-            <p className="text-black font-bold">Available</p>
+            {Session.Session.status === 0 ? (
+              <p className=" text-green-500 font-bold">Available</p>
+            ) : (
+              <p className="text-black font-bold"></p>
+            )}
           </div>
           <div>
             <h3 className="text-gray-500 text-sm lg:text-base mb-3">Actions</h3>
@@ -109,11 +130,15 @@ const LessonCard = () => {
         </div>
 
         {/* Join Lesson Button */}
-        <div className="my-3 flex justify-end h-11">
+        {console.log(Session.Session.id)}
+        <Link
+          to={`/Session/${Session.Session.id}`}
+          className="my-3 flex justify-end h-11"
+        >
           <button className="flex items-center justify-center text-white text-lg rounded-3xl py-2 px-4 font-bold bg-blue-600 border-b-4 border-blue-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-blue-700 active:scale-95">
             Join Lesson
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );

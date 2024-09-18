@@ -49,6 +49,7 @@ export default function Teacher() {
           }
         );
         setDataApi(res?.data?.data?.user);
+
         const sessions = res?.data?.data?.user?.sessions;
         console.log(sessions);
 
@@ -100,8 +101,9 @@ export default function Teacher() {
 
   // التعامل مع اختيار الحدث
   const handleEventClick = (info) => {
+
     const eventData = info.event.extendedProps;
-    console.log(session);
+    console.log(info);
     let id = Number(info.event._def.publicId);
 
     let singleSession = session.find((e) => e.id === id);
@@ -143,6 +145,8 @@ export default function Teacher() {
 
       setEvents((prevEvents) =>
         prevEvents.map((event) =>
+          
+         
           event.id === popupEvent.id ? { ...event, status: 1 } : event
         )
       );

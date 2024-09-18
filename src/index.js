@@ -24,6 +24,7 @@ import Register from "./components/Register/Register";
 import Teacher2 from "./components/Teacher2";
 import Support from "./components/Support";
 import { Toaster } from "react-hot-toast";
+import LiveStreamingPage from "./components/Sessions/LiveStreamingPage";
 
 const routes = [
   {
@@ -69,11 +70,15 @@ const routes = [
       {
         path: "register", // استخدم اسم متغير منطقي
         element: <Register />,
-     },
+      },
+      {
+        path: "/Session/:SingleSession", // استخدم اسم متغير منطقي
+        element: <LiveStreamingPage />,
+      },
       {
         path: "support", // Added support path here
         element: <Support />,
-      }
+      },
     ],
   },
 ];
@@ -88,9 +93,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+    <Toaster position="top-center" reverseOrder={false} />
   </React.StrictMode>
 );

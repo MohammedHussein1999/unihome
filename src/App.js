@@ -16,8 +16,6 @@ export default function App() {
   const [show, setShow] = useState(false);
   const [userTable, setUserTable] = useState();
   const loc = useLocation();
-  // const nav = useNavigate();
-  // console.log(userTable);
 
   let usersData = async () => {
     let userTable = await axios.get("https://unih0me.com/api/teachers");
@@ -62,7 +60,7 @@ export default function App() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setDataUse(res.data.data.wallets); // تخزين بيانات المحفظة
+        setDataUse(res.data.data.wallets);
       } catch (error) {
         console.log("Error fetching wallet data:", error);
       }
@@ -93,7 +91,7 @@ export default function App() {
               />
             </div>
           )}
-          <main className="min-h-screen  w-full   bg-[#eee]">
+          <main className="min-h-screen  w-full  py-6 bg-[#eee]">
             <Outlet /> {/* لعرض المحتويات المخصصة حسب المسار */}
           </main>
           <SupportIcon />

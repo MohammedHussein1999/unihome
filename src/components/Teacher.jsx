@@ -1,216 +1,259 @@
-import { Link, useParams } from "react-router-dom";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { apiWallet } from "../App";
-import { AiOutlineBook, AiOutlineMessage } from "react-icons/ai";
-import {
-  FaChalkboardTeacher,
-  FaFacebook,
-  FaFlag,
-  FaLanguage,
-  FaLinkedin,
-  FaTwitter,
-  FaUserGraduate,
-} from "react-icons/fa";
+import Cookies from "js-cookie";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { AiFillStar } from "react-icons/ai";
+import { BsPeople } from "react-icons/bs";
+import Modal from "react-modal";
+import Avatar from "../images/profileImage.png"; // Update with your image path
 import Reviews from "./Reviews/Reviews";
+import countries from './flag.json';
 
-const localizer = momentLocalizer(moment);
+// Setting up the popup modal
+Modal.setAppElement("#root");
 
 export default function Teacher() {
-  const { token } = useContext(apiWallet);
-  const [View, setView] = useState();
-  // let dataUse = JSON.parse(sessionStorage.getItem("user"));
-  const [selectedSlot, setSelectedSlot] = useState(null);
   const [dataApi, setDataApi] = useState(null);
   const [events, setEvents] = useState([]);
-  let { Teacher } = useParams();
+  const [popupEvent, setPopupEvent] = useState(null);
+  const [session, setSession] = useState([]);
+  const [singleSession, setSingleSession] = useState({});
+  const { Teacher } = useParams();
+  
+  const getCountryFlag = (countryName) => {
+    const country = countries.find(c => c.country === countryName);
+    return country ? country.flag : ''; // Return the flag or an empty string if not found
+  };
 
-  let Teacher_id = Number(Teacher);
+  const Teacher_id = Number(Teacher);
+  const token = Cookies.get("accessToken");
 
+  // Fetch teacher data
   useEffect(() => {
     const apiData = async () => {
-      await axios
-        .get(`https://unih0me.com/api/teacher/${Teacher_id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => {
-          setDataApi(res?.data?.data?.user);
-        })
-        .catch((error) => console.log(error));
+      try {
+        const res = await axios.get(
+          `https://unih0me.com/api/teacher/${Teacher_id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            }
+          }
+        );
+        const userData = res?.data?.data?.user;
+        setDataApi(userData);
+
+        // Sessions data for FullCalendar
+        if (userData?.sessions.length > 0) {
+          const sessionEvents = userData.sessions.map((session) => {
+            const startDate = new Date(`${session.startdate}T${session.starttime}`);
+            const endDate = new Date(`${session.enddate}T${session.endtime}`);
+            return {
+              id: session.id,
+              start: startDate,
+              end: endDate,
+              title: "Available Session",
+              status: session.status,
+            };
+          });
+          setSession(userData.sessions);
+          setEvents(sessionEvents);
+        }
+      } catch (error) {
+        console.error("Error fetching teacher data:", error);
+      }
     };
     apiData();
-  }, []);
+  }, [Teacher_id, token]);
 
-  const sndID = () => {
-    axios
-      .post(
+  // Customize event display
+  const eventContent = (eventInfo) => {
+    const { status } = eventInfo.event.extendedProps;
+    const backgroundColor = status === 0 ? "green" : "red"; 
+    return (
+      <div className="relative select-none">
+        <div
+          className="h-full min-w-full"
+          style={{
+            backgroundColor,
+            color: "white",
+            borderRadius: "100",
+            padding: "11px",
+          }}
+        >
+          {eventInfo.event.title}
+        </div>
+      </div>
+    );
+  };
+
+  // Handle event click
+  const handleEventClick = (info) => {
+    const eventData = info.event.extendedProps;
+    const eventId = Number(info.event._def.publicId);
+    const singleSession = session.find((e) => e.id === eventId);
+
+    if (singleSession?.status === 0) {
+      setPopupEvent(eventData);
+      setSingleSession(singleSession);
+    } else {
+      alert("This session is already booked.");
+    }
+  };
+
+  // Confirm booking
+  const handleBookingConfirm = async () => {
+    try {
+      await axios.post(
         "https://unih0me.com/api/auth/session/store",
-        { sessiontable_id: Teacher },
+        { sessiontable_id: singleSession.id },
         {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-          },
+          }
         }
-      )
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
-  };
-  // sndID();
-  useEffect(() => {
-    if (dataApi && dataApi.sessions) {
-      const sessionEvents = dataApi.sessions.map((session) => {
-        const startDate = new Date(`${session.date}T${session.time}`);
-        const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // إضافة ساعة افتراضية كوقت نهاية
+      );
+      console.log("Booking confirmed successfully!");
+      setPopupEvent(null); 
 
-        return {
-          id: session.id,
-          start: startDate,
-          end: endDate,
-          title: session.title,
-          status: session.status, // لتمييز الحالة
-        };
-      });
-
-      setEvents(sessionEvents);
+      setEvents((prevEvents) =>
+        prevEvents.map((event) =>
+          event.id === singleSession.id ? { ...event, status: 1 } : event
+        )
+      );
+    } catch (error) {
+      console.error("Error during booking confirmation:", error);
     }
-  }, [dataApi]);
-
-  const eventStyleGetter = (event) => {
-    let backgroundColor = event.status === 0 ? "red" : "green"; // تغيير اللون بناءً على الحالة
-    let onClick = () => console.log("ss");
-    let style = {
-      backgroundColor,
-      onClick,
-      borderRadius: "5px",
-      opacity: 0.8,
-      color: "white",
-      border: "0px",
-      display: "block",
-    };
-    return {
-      style,
-    };
   };
 
-  const handleSelectSlot = (slotInfo) => {
-    const { start, end } = slotInfo;
-    console.log("Selected slot:", start, end);
-    // يمكن هنا إرسال البيانات أو حفظ الاختيار
-    // const newEvent = { start, end, title: "New Booking", status: 1 };
-    // setEvents([...events, newEvent]);
+  const embedLink = dataApi?.youtube_link?.replace("watch?v=", "embed/") || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+
+  const Popup = ({ event, onClose }) => {
+    if (!event) return null;
+    return (
+      <div className="popup-overlay profile-tether" onClick={onClose}>
+        <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+          <h3>{event.title}</h3>
+          <p>Date: {event.start ? event.start.toString() : "No date available"}</p>
+          <p>Status: {event.status === 0 ? "Available" : "Unavailable"}</p>
+          <div className="mt-4">
+            <button
+              onClick={() => {
+                onClose(); 
+                handleBookingConfirm(); 
+              }}
+              className="px-4 py-2 text-white bg-green-500 rounded"
+            >
+              Confirm Booking
+            </button>
+            <button
+              onClick={onClose}
+              className="px-4 py-2 ml-2 text-white bg-gray-500 rounded"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
-
-  const MyCalendar = (props) => (
-    <div className="myCustomHeight">
-      <Calendar
-        localizer={localizer}
-        events={events} // عرض الجلسات المحجوزة
-        defaultView="week"
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 500 }}
-        selectable
-        onSelectSlot={handleSelectSlot} // التعامل مع تحديد الفتحات الزمنية
-        eventPropGetter={eventStyleGetter} // تخصيص ألوان الأحداث
-        timeslots={2}
-        views={["week"]}
-      />
-    </div>
-  );
-  let embedLink = dataApi?.youtube_link?.replace("watch?v=", "embed/");
-  // console.log(dataApi?.id);
-
-  Teacher = dataApi?.id;
-  // console.log(Teacher);
 
   return (
-    <div>
-      {embedLink && (
-        <div className="mt-2 m-a mb-5 videoInstructor d-flex justify-content-center">
-          <iframe
-            width="700"
-            height="350"
-            src={embedLink}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
+    <div className="max-w-5xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
+      {/* Video Section */}
+      <div className="mb-6">
+        <iframe
+          src={embedLink}
+          title="Teacher Introduction Video"
+          className="w-full aspect-video rounded-lg"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
-      <div>
-        <div className="text-center lg:text-left">
-          <div className="flex flex-wrap items-center justify-start mt-3 lg:justify-start">
-            <span className="px-2 py-1 mb-2 mr-2 text-xs text-white bg-green-500 rounded-md lg:mb-0">
-              FEATURED
-            </span>
-            <h2 className="text-xl font-bold sm:text-2xl">
-              {dataApi?.name || "Teacher's Name"}
-            </h2>
-            <FaFlag className="ml-2 text-blue-500" />
-          </div>
-          <p className="flex items-center justify-start mt-1 text-sm text-gray-500 sm:text-base lg:justify-start sm:mt-2">
-            <FaChalkboardTeacher className="mr-1" /> Egypt
-          </p>
-          <p className="flex items-center justify-start mt-1 text-sm text-gray-500 sm:text-base lg:justify-start sm:mt-2">
-            <FaUserGraduate className="mr-1" /> Lessons {dataApi?.lessons}{" "}
-            Students {dataApi?.students}
-          </p>
-          <p className="flex items-center justify-start mt-1 text-sm text-gray-500 sm:text-base lg:justify-start sm:mt-2">
-            <FaLanguage className="mr-1" /> {dataApi?.languages}
-          </p>
-        </div>
-      </div>
-      <p className="mt-3 text-sm text-center text-gray-700 sm:text-base sm:mt-4 lg:text-left">
-        {dataApi?.description}
-      </p>
-      <div className="flex items-center justify-start mt-3 lg:justify-start sm:mt-4">
-        <FaTwitter className="mr-3 text-blue-500 cursor-pointer sm:mr-4" />
-        <FaLinkedin className="mr-3 text-blue-700 cursor-pointer sm:mr-4" />
-        <FaFacebook className="text-blue-600 cursor-pointer" />
-      </div>
-      <div className="grid grid-cols-2 gap-2 mt-4 sm:mt-5 md:mt-6 sm:flex sm:flex-wrap sm:gap-3 md:gap-4">
-        <Link to={`/calendar/${Teacher_id}`}>
-          <button className="flex items-center justify-start px-3 py-2 text-sm font-medium text-white transition-transform duration-300 transform bg-green-500 rounded-lg sm:px-4 sm:text-base hover:scale-105">
-            <AiOutlineBook className="mr-1" />
-            Book Now
-          </button>
-        </Link>
-        <Link to={`/chat?id=${Teacher_id}`}>
-          <button className="flex items-center justify-start px-3 py-2 text-sm font-medium text-white transition-transform duration-300 transform bg-blue-500 rounded-lg sm:px-4 sm:text-base hover:scale-105">
-            <AiOutlineMessage className="mr-1" />
-            Message
-          </button>
-        </Link>
-      </div>
-      <div className="mt-6 sm:mt-7 md:mt-8">
-        <h3 className="mb-3 text-base font-semibold text-center sm:text-lg sm:mb-4 lg:text-left">
-          Reviews
-        </h3>
-      </div>
-      <div className="p-5">
-        <hr className="border border-[#dfdfdf]" />
-        <div className="p-2">
-          <h3 className="mb-1 text-4xl font-bold text-gray-900 dark:text-white">
-            Availability
-          </h3>
-          <div className="height600">
-            <MyCalendar />
-          </div>
+      {/* Teacher Information */}
+      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+        <div className="flex items-center mb-4">
+          <img
+            src={dataApi?.image || Avatar}
+            alt="Teacher Avatar"
+            className="w-20 h-20 rounded-3xl mr-4"
+          />
           <div>
-            <Reviews teacher={Teacher_id} />
+            <h2 className="text-2xl font-bold text-gray-800">
+              {dataApi?.firstname} {dataApi?.lastname}
+            </h2>
+            <p className="flex items-center text-gray-600">
+              <span className="mr-1">{getCountryFlag(dataApi?.country)}</span>
+              {dataApi?.country}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center text-yellow-300 text-lg mb-4">
+          <AiFillStar className="mr-1" />
+          <span className="text-yellow-500">4.9 (205 Reviews)</span>
+        </div>
+
+        <div className="text-center mb-4">
+          <p className="text-xl font-semibold text-gray-700">
+            Hourly Rate: <span className="text-green-600">EGP {dataApi?.balance}.00</span>
+          </p>
+        </div>
+
+        <div className="flex justify-around">
+          <div className="text-center">
+            <BsPeople className="text-3xl text-yellow-500 mb-2 mx-auto" />
+            <p className="text-gray-800 font-semibold">
+              <span className="block text-2xl">{dataApi?.students.length}</span> Students
+            </p>
+          </div>
+          <div className="text-center">
+            <FaChalkboardTeacher className="text-3xl text-yellow-500 mb-2 mx-auto" />
+            <p className="text-gray-800 font-semibold">
+              <span className="block text-2xl">{dataApi?.sessions.length}</span> Sessions
+            </p>
           </div>
         </div>
       </div>
+
+      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+        <h3 className="text-xl font-bold text-gray-800 mb-4">About Me</h3>
+        <p className="mt-3 text-sm text-center text-gray-700 sm:text-base sm:mt-4 lg:text-left">
+          {dataApi?.intro || "No introduction available."}
+        </p>
+      </div>
+
+      {/* New Dashboard Section */}
+      <div className="block w-full m-auto sm:mt-4">
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          headerToolbar={{
+            left: "prev,next today",
+            center: "title",
+            right: "timeGridWeek",
+          }}
+          initialView="dayGridMonth"
+          events={events}
+          eventClick={handleEventClick}
+          eventContent={eventContent}
+        />
+      </div>
+
+      <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
+        <Reviews />
+      </div>
+
+      {/* Popup for event details */}
+      {popupEvent && (
+        <Popup event={popupEvent} onClose={() => setPopupEvent(null)} />
+      )}
     </div>
   );
 }
