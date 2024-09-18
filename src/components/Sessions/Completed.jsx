@@ -13,7 +13,7 @@ const Completed = () => {
                     <p className="text-sm font-semibold">Date: April 9, 2025</p>
                 </div>
                 {/* User Info & Countdown Timer */}
-                <div className="flex flex-col lg:flex-row justify-between items-center mb-3">
+                <div className="for_book">
                     {/* User Info */}
                     <div className="flex items-center space-x-4 mb-4 sm:mb-0">
                         <div>
