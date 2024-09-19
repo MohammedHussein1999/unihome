@@ -79,7 +79,7 @@ const LessonCard = () => {
           <div className="text-center">
             <h3 className="text-gray-500 text-sm lg:text-base">Details</h3>
             <p className="text-gray-800 font-medium">
-              <span className="text-black font-bold">Sunday</span>, August 11, 2024
+              <span className="text-black font-bold">Sunday</span>{}
             </p>
           </div>
           <div className="text-center">
