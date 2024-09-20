@@ -94,7 +94,7 @@ export default function Dashboard() {
   }, []);
   useEffect(() => {
     dataSession.map(async (e) => {
-      const userId = dataUser === "student" ? e.student_id : e.teacher_id;
+      const userId = dataUser.type === "student" ? e.student_id : e.teacher_id;
       let request = await axios.get(
         `https://unih0me.com/api/teacher/${userId}`,
         {
@@ -104,7 +104,6 @@ export default function Dashboard() {
           },
         }
       );
-
       setStudent(request.data.data.user);
       setSessionsStudent(request.data.data.user.sessions);
     });

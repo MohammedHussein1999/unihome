@@ -96,7 +96,7 @@ const LessonCard = (Session) => {
               <span className="text-black font-bold">
                 {Session.Session.date}
               </span>
-              {}
+              
             </p>
           </div>
           <div className="text-center">

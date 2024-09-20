@@ -1,3 +1,4 @@
+
 import "./index.css";
 import "flowbite";
 import "tw-elements";
@@ -96,3 +97,4 @@ root.render(
     <Toaster position="top-center" reverseOrder={false} />
   </React.StrictMode>
 );
+

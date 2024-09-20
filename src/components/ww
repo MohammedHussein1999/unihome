@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import Reviews from "./Reviews/Reviews";
 import Modal from "react-modal";
+import { log } from "util";
 
 // إعدادات النافذة المنبثقة
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ export default function Teacher() {
 
   let Teacher_id = Number(Teacher2);
   let token = Cookies.get("accessToken");
-  console.log(dataApi);
+  // console.log(dataApi);
 
   // جلب بيانات المعلم
   useEffect(() => {
@@ -48,8 +49,9 @@ export default function Teacher() {
             },
           }
         );
-        setDataApi(res?.data?.data?.user);
 
+
+        setDataApi(res?.data?.data?.user);
         const sessions = res?.data?.data?.user?.sessions;
         console.log(sessions);
 
@@ -75,6 +77,41 @@ export default function Teacher() {
   }, [Teacher_id, token]);
 
   // جلب بيانات الجلسات وتحويلها إلى أحداث للتقويم
+  /*   useEffect(() => {
+    const fetchSessions = async () => {
+      try {
+        const res = await axios.get(
+          `https://unih0me.com/api/auth/sessiontables`,
+
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const sessions = res?.data?.data?.sessiontables;
+        setSession(res?.data?.data);
+        const sessionEvents = sessions.map((session) => {
+          const startDate = new Date(`${session.date}T${session.time}`);
+          const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // افتراض انتهاء الجلسة بعد ساعة
+
+          return {
+            id: session.id,
+            start: startDate,
+            end: endDate,
+            title: session.title,
+            status: session.status,
+          };
+        });
+        setEvents(sessionEvents);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchSessions();
+  }, [token]); */
 
   // تخصيص أسلوب عرض الأحداث
   const eventContent = (eventInfo) => {
@@ -101,13 +138,10 @@ export default function Teacher() {
 
   // التعامل مع اختيار الحدث
   const handleEventClick = (info) => {
-
     const eventData = info.event.extendedProps;
-    console.log(info);
     let id = Number(info.event._def.publicId);
 
-    let singleSession = session.find((e) => e.id === id);
-    console.log(singleSession);
+    let singleSession = session.sessiontables.find((e) => e.id === id);
     setSingleSession(singleSession);
 
     // setSession();
@@ -138,15 +172,11 @@ export default function Teacher() {
       );
 
       console.log("تم الحجز بنجاح!");
-      if (popupEvent && popupEvent.status === 0) {
-        setPopupEvent(null); // أغلق النافذة بعد تأكيد الحجز
-      }
+      setPopupEvent(null);
       // تحديث الحالة في الجدول لتجنب تكرار الحجز
 
       setEvents((prevEvents) =>
         prevEvents.map((event) =>
-          
-         
           event.id === popupEvent.id ? { ...event, status: 1 } : event
         )
       );
@@ -164,7 +194,7 @@ export default function Teacher() {
     if (!event) return null;
 
     return (
-      <div className="popup-overlay profile-tether" onClick={onClose}>
+      <div className="popup-overlay px-10-5" onClick={onClose}>
         <div className="popup-content" onClick={(e) => e.stopPropagation()}>
           <h3>{event.title}</h3>
           <p>
@@ -196,7 +226,7 @@ export default function Teacher() {
   return (
     <div>
       {embedLink && (
-        <div className="mt-2 m-auto mb-5 videoInstructor d-flex justify-content-center">
+        <div className="mt-2 m-a mb-5 videoInstructor d-flex justify-content-center">
           <iframe
             width="700"
             height="350"
@@ -211,11 +241,7 @@ export default function Teacher() {
 
       <div>
         <div className="text-center  text-black lg:text-left">
-          <img
-            src={dataApi?.image}
-            alt="avatar"
-            className=" w-40 rounded-full"
-          />
+          <img src={dataApi?.image} alt="avatar" className=" w-1/3" />
 
           <div className="flex flex-wrap items-center justify-start mt-3 lg:justify-start">
             <p className="px-2 block py-1 mb-2 mr-2 text-xs text-white bg-green-500 rounded-md lg:mb-0">
@@ -231,7 +257,7 @@ export default function Teacher() {
           </p>
           <p className="flex items-center justify-start mt-1 text-sm text-gray-500 sm:text-base lg:justify-start sm:mt-2">
             <FaUserGraduate className="mr-1" /> Lessons {dataApi?.lessons}{" "}
-            Students {dataApi?.type}
+            Students {dataApi?.students}
           </p>
 
           <p className="flex items-center justify-start mt-1 text-sm text-gray-500 sm:text-base lg:justify-start sm:mt-2">
@@ -256,7 +282,7 @@ export default function Teacher() {
         </Link>
 
         <Link
-          to={`/chat?id=${Teacher_id}&image=${dataApi?.image}&firstName=${dataApi?.firstname}`}
+          to={`/chat?id=${Teacher_id}&image=${dataApi?.image}&firstname=${dataApi?.firstname}`}
         >
           <button className="flex items-center justify-start px-3 py-2 text-sm font-medium text-white transition-transform duration-300 transform bg-blue-500 rounded-lg sm:px-4 sm:text-base hover:scale-105">
             <AiOutlineMessage className="mr-1" />
@@ -280,8 +306,9 @@ export default function Teacher() {
               <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView="timeGridWeek"
-                events={events} // تأكد من تمرير الأحداث هنا
+                events={events}
                 eventContent={eventContent}
+                data-popover-target="popover-user-profile"
                 eventClick={handleEventClick}
                 selectable
                 contentHeight={500}
