@@ -80,6 +80,10 @@ const routes = [
         path: "support", // Added support path here
         element: <Support />,
       },
+      {
+        path: "Session/:SingleSession/VideoConference", // Added support path here
+        element: <Support />,
+      },
     ],
   },
 ];

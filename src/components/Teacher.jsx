@@ -12,7 +12,7 @@ import { BsPeople } from "react-icons/bs";
 import Modal from "react-modal";
 import Avatar from "../images/profileImage.png"; // Update with your image path
 import Reviews from "./Reviews/Reviews";
-import countries from './flag.json';
+import countries from "./flag.json";
 
 // Setting up the popup modal
 Modal.setAppElement("#root");
@@ -24,10 +24,10 @@ export default function Teacher() {
   const [session, setSession] = useState([]);
   const [singleSession, setSingleSession] = useState({});
   const { Teacher } = useParams();
-  
+
   const getCountryFlag = (countryName) => {
-    const country = countries.find(c => c.country === countryName);
-    return country ? country.flag : ''; // Return the flag or an empty string if not found
+    const country = countries.find((c) => c.country === countryName);
+    return country ? country.flag : ""; // Return the flag or an empty string if not found
   };
 
   const Teacher_id = Number(Teacher);
@@ -43,7 +43,7 @@ export default function Teacher() {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
-            }
+            },
           }
         );
         const userData = res?.data?.data?.user;
@@ -52,7 +52,9 @@ export default function Teacher() {
         // Sessions data for FullCalendar
         if (userData?.sessions.length > 0) {
           const sessionEvents = userData.sessions.map((session) => {
-            const startDate = new Date(`${session.startdate}T${session.starttime}`);
+            const startDate = new Date(
+              `${session.startdate}T${session.starttime}`
+            );
             const endDate = new Date(`${session.enddate}T${session.endtime}`);
             return {
               id: session.id,
@@ -75,7 +77,7 @@ export default function Teacher() {
   // Customize event display
   const eventContent = (eventInfo) => {
     const { status } = eventInfo.event.extendedProps;
-    const backgroundColor = status === 0 ? "green" : "red"; 
+    const backgroundColor = status === 0 ? "green" : "red";
     return (
       <div className="relative select-none">
         <div
@@ -117,11 +119,11 @@ export default function Teacher() {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-          }
+          },
         }
       );
       console.log("Booking confirmed successfully!");
-      setPopupEvent(null); 
+      setPopupEvent(null);
 
       setEvents((prevEvents) =>
         prevEvents.map((event) =>
@@ -133,7 +135,9 @@ export default function Teacher() {
     }
   };
 
-  const embedLink = dataApi?.youtube_link?.replace("watch?v=", "embed/") || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+  const embedLink =
+    dataApi?.youtube_link?.replace("watch?v=", "embed/") ||
+    "https://www.youtube.com/embed/dQw4w9WgXcQ";
 
   const Popup = ({ event, onClose }) => {
     if (!event) return null;
@@ -141,13 +145,15 @@ export default function Teacher() {
       <div className="popup-overlay profile-tether" onClick={onClose}>
         <div className="popup-content" onClick={(e) => e.stopPropagation()}>
           <h3>{event.title}</h3>
-          <p>Date: {event.start ? event.start.toString() : "No date available"}</p>
+          <p>
+            Date: {event.start ? event.start.toString() : "No date available"}
+          </p>
           <p>Status: {event.status === 0 ? "Available" : "Unavailable"}</p>
           <div className="mt-4">
             <button
               onClick={() => {
-                onClose(); 
-                handleBookingConfirm(); 
+                onClose();
+                handleBookingConfirm();
               }}
               className="px-4 py-2 text-white bg-green-500 rounded"
             >
@@ -203,7 +209,8 @@ export default function Teacher() {
 
         <div className="text-center mb-4">
           <p className="text-xl font-semibold text-gray-700">
-            Hourly Rate: <span className="text-green-600">EGP {dataApi?.balance}.00</span>
+            Hourly Rate:{" "}
+            <span className="text-green-600">EGP {dataApi?.balance}.00</span>
           </p>
         </div>
 
@@ -211,13 +218,15 @@ export default function Teacher() {
           <div className="text-center">
             <BsPeople className="text-3xl text-yellow-500 mb-2 mx-auto" />
             <p className="text-gray-800 font-semibold">
-              <span className="block text-2xl">{dataApi?.students.length}</span> Students
+              <span className="block text-2xl">{dataApi?.students.length}</span>{" "}
+              Students
             </p>
           </div>
           <div className="text-center">
             <FaChalkboardTeacher className="text-3xl text-yellow-500 mb-2 mx-auto" />
             <p className="text-gray-800 font-semibold">
-              <span className="block text-2xl">{dataApi?.sessions.length}</span> Sessions
+              <span className="block text-2xl">{dataApi?.sessions.length}</span>{" "}
+              Sessions
             </p>
           </div>
         </div>
@@ -239,7 +248,7 @@ export default function Teacher() {
             center: "title",
             right: "timeGridWeek",
           }}
-          initialView="dayGridMonth"
+          initialView="timeGridWeek"
           events={events}
           eventClick={handleEventClick}
           eventContent={eventContent}
@@ -247,7 +256,7 @@ export default function Teacher() {
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-lg mt-6">
-        <Reviews />
+        <Reviews teacher={Teacher_id} />
       </div>
 
       {/* Popup for event details */}

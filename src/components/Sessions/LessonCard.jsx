@@ -14,8 +14,7 @@ const LessonCard = (Session) => {
   let DateAll = dateSection - dateNew;
   const [timeLeft, setTimeLeft] = useState(DateAll > 0 ? DateAll : 0);
 
-  // console.log(Session);
-  // Countdown effect
+
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -130,7 +129,7 @@ const LessonCard = (Session) => {
         </div>
 
         {/* Join Lesson Button */}
-        {console.log(Session.Session.id)}
+ 
         <Link
           to={`/Session/${Session.Session.id}`}
           className="my-3 flex justify-end h-11"

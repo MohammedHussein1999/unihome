@@ -9,8 +9,6 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { MdQuiz } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { PiMonitorPlayFill } from "react-icons/pi";
-import Wallet from "./Wallet";
-import Settings from "./Settings";
 
 import AddQuestions from "./Quiz/AddQuestions";
 import SubmitAnswer from "./Quiz/SubmitAnswer";
@@ -25,6 +23,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import RoutingSession from "./Sessions/RoutingSession";
 import DesignWallet from "./Wallet/DesignWallet";
+import TeacherCard from "./Instructor/TeacherCard";
+import RoutingSting from "./Profile/RoutingSting";
 
 export default function Dashboard() {
   const [basicActive, setBasicActive] = useState("tab1");
@@ -57,7 +57,7 @@ export default function Dashboard() {
     }
     setBasicActive(value);
   };
-  console.log(dataSession);
+
   const closeSidebar = () => {
     document
       .getElementById("default-sidebar")
@@ -94,7 +94,7 @@ export default function Dashboard() {
   }, []);
   useEffect(() => {
     dataSession.map(async (e) => {
-      const userId = dataUser.type === "student" ? e.student_id : e.teacher_id;
+      const userId = dataUser.type === "student" ? e.teacher_id : e.student_id;
       let request = await axios.get(
         `https://unih0me.com/api/teacher/${userId}`,
         {
@@ -170,7 +170,9 @@ export default function Dashboard() {
                 active={basicActive === "tab2"}
               >
                 <FaChalkboardTeacher className="text-2xl inline text-orange-500" />
-                <span className="mt-1 text-base font-semibold">Teacher</span>
+                <span className="mt-1 text-base font-semibold">
+                  {dataUser.type === "student" ? "Teacher" : "student"}
+                </span>
               </TETabsItem>
 
               <TETabsItem
@@ -210,7 +212,11 @@ export default function Dashboard() {
               <RoutingSession Student={student} Session={sessionsStudent} />
             </TETabsPane>
 
-            <TETabsPane show={basicActive === "tab2"}></TETabsPane>
+            <TETabsPane show={basicActive === "tab2"}>
+              {sessionsStudent.map((e) => (
+                <TeacherCard Student={student} Session={e} />
+              ))}
+            </TETabsPane>
 
             <TETabsPane show={basicActive === "tab3"}>Tab 3 content</TETabsPane>
 
@@ -218,8 +224,29 @@ export default function Dashboard() {
               <DesignWallet />
             </TETabsPane>
 
-            <TETabsPane show={basicActive === "tab5"}>
-              <Settings />
+            <TETabsPane show={basicActive === "tab5"} className=" overflow-auto">
+              {/* <RoutingSting /> */}
+              <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit officiis non in magnam recusandae esse eveniet, sapiente molestiae beatae eligendi debitis provident. Perferendis minima, eum magnam assumenda dicta beatae.</p>
+                <p>At animi eum natus, quidem, deleniti architecto magnam tenetur voluptatem ea delectus distinctio nostrum nisi, officia praesentium unde dolores beatae minima. Ratione doloremque aliquam itaque sint eaque deleniti sed corrupti?</p>
+                <p>Iusto eum totam, reprehenderit eaque perferendis vitae similique deleniti quam ullam. Natus vel asperiores alias reprehenderit, doloremque accusantium aliquam beatae ut iusto nulla quis, laborum assumenda debitis enim nostrum numquam.</p>
+                <p>Harum, ipsam obcaecati, sequi, doloribus eaque cum quisquam nostrum voluptatibus iusto adipisci accusamus doloremque consequuntur voluptates dolore. At, possimus sint. Perspiciatis modi eaque nostrum necessitatibus eum molestiae qui unde. Numquam!</p>
+                <p>Minima expedita, molestias assumenda repellendus quasi fugit incidunt saepe sequi. Praesentium architecto, laudantium vero possimus itaque ea mollitia labore, nihil consectetur vel eius, modi impedit nemo suscipit eos sit placeat.</p>
+              </div>
+              <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dicta quas inventore nesciunt, alias quaerat quo consequatur, vel illo amet, dolore animi obcaecati nobis eaque neque maiores error! Velit, cum.</p>
+                <p>Pariatur repellat ipsam magni accusamus hic eligendi officia minus vitae, ab consectetur voluptate unde, iste optio aut sunt perspiciatis libero accusantium, quaerat nobis maiores quia recusandae quisquam similique perferendis. Consequatur!</p>
+                <p>Voluptates quisquam exercitationem corrupti est, aut quis, sapiente nobis veniam officiis amet nam. Dolore accusantium voluptatum earum suscipit, sed odio officiis quos recusandae autem cum nobis necessitatibus maiores eligendi nisi?</p>
+                <p>Soluta nihil quam iure quis aliquam in, natus adipisci odit inventore ipsa maxime molestiae hic eaque beatae repellendus id porro veniam quaerat perspiciatis eius sapiente cumque pariatur corporis libero! Aliquam?</p>
+                <p>Distinctio nesciunt provident in cumque culpa cupiditate illo, hic perferendis iste, eligendi quibusdam nostrum nihil, maxime alias quasi. Necessitatibus excepturi aperiam ipsam sint placeat? Beatae consequuntur minus facilis nulla voluptates.</p>
+              </div>
+              <div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt repudiandae vel amet corporis autem, eum nulla nostrum accusamus quo consectetur, dolore iste ad doloribus? Voluptatibus blanditiis quae at incidunt quos?</p>
+                <p>Autem aut ut ex vel necessitatibus obcaecati, fugiat culpa harum dignissimos officiis consequatur totam pariatur sed adipisci deserunt, nulla aspernatur ab voluptas. Fugit perferendis officia voluptas repellendus modi assumenda et?</p>
+                <p>Asperiores aut fugiat corporis ullam voluptatum officia, inventore hic incidunt tempore rem! Dolore, cum, officiis labore culpa alias velit porro deleniti provident incidunt molestias doloribus ipsam ullam nostrum maxime ipsum?</p>
+                <p>Aliquam at praesentium assumenda corporis nisi. Voluptas recusandae ab labore iste. Quis necessitatibus adipisci dicta optio. Veritatis rem obcaecati exercitationem nisi, nihil in perferendis quibusdam, laboriosam, vero tempore reiciendis sunt!</p>
+                <p>Veniam vero aliquid numquam illo itaque consectetur deleniti possimus? Architecto tempora exercitationem provident soluta eum? Qui minima tenetur modi a, porro fugit consectetur numquam dolor! Soluta beatae quasi molestiae consectetur.</p>
+              </div>
             </TETabsPane>
 
             <TETabsPane show={basicActive === "tab6"}>

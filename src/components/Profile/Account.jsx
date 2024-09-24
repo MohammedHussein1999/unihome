@@ -1,8 +1,8 @@
-import React, { useMemo, useState, useRef } from 'react';
-import userProfile from '../images/profile.jpg';
-import axios from 'axios';
-import countryList from 'react-select-country-list';
-import timezone from './timezones.json';
+import { useMemo, useState, useRef } from "react";
+import userProfile from "../Assets/images/profile.jpg";
+import axios from "axios";
+import countryList from "react-select-country-list";
+import timezone from "../timezones.json";
 
 export default function Account() {
   const options = useMemo(() => countryList().getData(), []);
@@ -11,32 +11,38 @@ export default function Account() {
   const [imgAvatar, setImgAvatar] = useState(null);
   const [dataUser, setDataUser] = useState({});
   const [profileInput, setProfileInput] = useState({
-    image: "", country: "", timeZone: ""
+    image: "",
+    country: "",
+    timeZone: "",
   });
 
   // Reference for file input
   const fileInputRef = useRef(null);
 
   async function profile() {
-    let response = await axios.post("https://unih0me.com/api/auth/user-profile/teacher", profileInput, {
-      headers: {
-        'Authorization': 'Bearer YOUR_TOKEN'
+    let response = await axios.post(
+      "https://unih0me.com/api/auth/user-profile/teacher",
+      profileInput,
+      {
+        headers: {
+          Authorization: "Bearer YOUR_TOKEN",
+        },
       }
-    });
+    );
     setDataUser(response.data);
   }
 
   function input(e) {
     const { name, value } = e.target;
-    setProfileInput(prevInput => {
+    setProfileInput((prevInput) => {
       const updatedInput = {
         ...prevInput,
-        [name]: value
+        [name]: value,
       };
 
       // Update timezone if country changes
-      if (name === 'country') {
-        updatedInput.timeZone = timezoneMap[value] || '';
+      if (name === "country") {
+        updatedInput.timeZone = timezoneMap[value] || "";
       }
 
       return updatedInput;
@@ -45,7 +51,7 @@ export default function Account() {
 
   function uploadPictureProfile(e) {
     setImgAvatar(e.target.files[0]);
-    fileInputRef.current.value = '';
+    fileInputRef.current.value = "";
   }
 
   function removePictureProfile() {
@@ -54,14 +60,20 @@ export default function Account() {
 
   return (
     <>
-      <section className='accountSettings pt-10 ps-10'>
-        <div className="flex flex-col md:flex-row justify-between flex-wrap" id='profileSetting'>
+      <section className="bg-white overflow-auto accountSettings pt-10 ps-10">
+        <div
+          className="flex flex-col md:flex-row justify-between flex-wrap"
+          id="profileSetting"
+        >
           {/* Form Section */}
           <div className="formSetting basis-full md:basis-1/2 mb-10">
             <form className="w-full">
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5" htmlFor="grid-first-name">
+                  <label
+                    className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
+                    htmlFor="grid-first-name"
+                  >
                     First Name
                   </label>
                   <input
@@ -71,11 +83,14 @@ export default function Account() {
                     type="text"
                     placeholder="Jane"
                     name="firstname"
-                    value={profileInput.firstname || ''}
+                    value={profileInput.firstname || ""}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3">
-                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5" htmlFor="grid-last-name">
+                  <label
+                    className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
+                    htmlFor="grid-last-name"
+                  >
                     Last Name
                   </label>
                   <input
@@ -85,13 +100,16 @@ export default function Account() {
                     type="text"
                     placeholder="Doe"
                     name="lastname"
-                    value={profileInput.lastname || ''}
+                    value={profileInput.lastname || ""}
                   />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="basis-full md:basis-1/2 px-3">
-                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5" htmlFor="grid-whats">
+                  <label
+                    className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
+                    htmlFor="grid-whats"
+                  >
                     WhatsApp Number
                   </label>
                   <input
@@ -100,12 +118,12 @@ export default function Account() {
                     type="text"
                     placeholder="Enter WhatsApp number"
                     name="whats"
-                    value={profileInput.whats || ''}
+                    value={profileInput.whats || ""}
                     onChange={input}
                   />
                 </div>
                 <div className="flex flex-col basis-full md:basis-1/2 gap-2 px-3">
-                  <label className='block capitalize tracking-wide text-blue-600 text-sm font-bold ms-6'>
+                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold ms-6">
                     Gender
                   </label>
                   <div className="flex gap-4">
@@ -118,7 +136,10 @@ export default function Account() {
                         name="gender"
                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                       />
-                      <label htmlFor="bordered-radio-1" className="w-full py-3 px-4 text-sm font-medium text-gray-900">
+                      <label
+                        htmlFor="bordered-radio-1"
+                        className="w-full py-3 px-4 text-sm font-medium text-gray-900"
+                      >
                         Female
                       </label>
                     </div>
@@ -131,7 +152,10 @@ export default function Account() {
                         name="gender"
                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                       />
-                      <label htmlFor="bordered-radio-2" className="w-full py-4 ms-3 text-sm font-medium text-gray-900">
+                      <label
+                        htmlFor="bordered-radio-2"
+                        className="w-full py-4 ms-3 text-sm font-medium text-gray-900"
+                      >
                         Male
                       </label>
                     </div>
@@ -140,7 +164,10 @@ export default function Account() {
               </div>
               <div className="flex flex-wrap -mx-3 mb-2">
                 <div className="w-full md:w-1/2 px-3 mb-6">
-                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5" htmlFor="grid-country">
+                  <label
+                    className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
+                    htmlFor="grid-country"
+                  >
                     Country
                   </label>
                   <div className="relative">
@@ -152,12 +179,19 @@ export default function Account() {
                       value={profileInput.country}
                     >
                       <option hidden>Select</option>
-                      {options.map((option, index) => <option key={index} value={option.label}>{option.label}</option>)}
+                      {options.map((option, index) => (
+                        <option key={index} value={option.label}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
                 <div className="w-full md:w-1/2 px-3 mb-6">
-                  <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5" htmlFor="grid-timezone">
+                  <label
+                    className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
+                    htmlFor="grid-timezone"
+                  >
                     Timezone
                   </label>
                   <div className="relative">
@@ -170,7 +204,9 @@ export default function Account() {
                     >
                       <option value="">Select Timezone</option>
                       {Object.entries(timezoneMap).map(([key, value]) => (
-                        <option key={key} value={value}>{value}</option>
+                        <option key={key} value={value}>
+                          {value}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -180,18 +216,39 @@ export default function Account() {
           </div>
           {/* Avatar and Buttons */}
           <div className="pictureAvatar flex flex-col justify-center items-center basis-full md:basis-1/2">
-            <span className='font-bold text-lg mb-4'>Change your profile picture</span>
-            <img className="w-24 h-24 md:w-36 md:h-36 avatar mt-5 mb-5 rounded-full shadow-lg shadow-black" src={imgAvatar ? URL.createObjectURL(imgAvatar) : userProfile} alt="rounded avatar" id='avatar' />
+            <span className="font-bold text-lg mb-4">
+              Change your profile picture
+            </span>
+            <img
+              className="w-24 h-24 md:w-36 md:h-36 avatar mt-5 mb-5 rounded-full shadow-lg shadow-black"
+              src={imgAvatar ? URL.createObjectURL(imgAvatar) : userProfile}
+              alt="rounded avatar"
+              id="avatar"
+            />
             <div className="btnPicture w-full flex flex-col items-center duration-500 transition-all">
               <div className="mt-4">
-                <label htmlFor='upload' className='border-2 border-orange-500 bg-orange-500 hover:bg-white hover:text-black cursor-pointer duration-500 w-full text-white font-bold py-2 px-10 md:px-20 rounded-3xl focus:outline-none focus:shadow-outline'>
+                <label
+                  htmlFor="upload"
+                  className="border-2 border-orange-500 bg-orange-500 hover:bg-white hover:text-black cursor-pointer duration-500 w-full text-white font-bold py-2 px-10 md:px-20 rounded-3xl focus:outline-none focus:shadow-outline"
+                >
                   Upload
                 </label>
-                <input className='w-full' hidden type="file" id='upload' name='image' ref={fileInputRef} onChange={uploadPictureProfile} />
+                <input
+                  className="w-full"
+                  hidden
+                  type="file"
+                  id="upload"
+                  name="image"
+                  ref={fileInputRef}
+                  onChange={uploadPictureProfile}
+                />
               </div>
               {imgAvatar && (
                 <div className="mt-4">
-                  <button onClick={removePictureProfile} className="border-2 border-red-600 bg-red-600 hover:bg-white hover:text-black cursor-pointer duration-500 w-full text-white font-bold py-2 px-10 md:px-20 rounded-3xl focus:outline-none focus:shadow-outline">
+                  <button
+                    onClick={removePictureProfile}
+                    className="border-2 border-red-600 bg-red-600 hover:bg-white hover:text-black cursor-pointer duration-500 w-full text-white font-bold py-2 px-10 md:px-20 rounded-3xl focus:outline-none focus:shadow-outline"
+                  >
                     Remove
                   </button>
                 </div>
@@ -200,7 +257,10 @@ export default function Account() {
           </div>
         </div>
         <div className="formBtn flex justify-center w-full mt-10">
-          <button onClick={profile} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 md:px-10 rounded-3xl focus:outline-none focus:shadow-outline">
+          <button
+            onClick={profile}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-5 md:px-10 rounded-3xl focus:outline-none focus:shadow-outline"
+          >
             Save Changes
           </button>
         </div>

@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react'
 import * as Yup from "yup"
 import Cookies from 'js-cookie';
-import imgLogo from '../Assets/b02a2615-964f-44d0-a55d-2dcfdd4c303f.jpg'
+import imgLogo from '../Assets/6321602.jpg'
 
 export default function EditPassword() {
     const [loading, setLoading] = useState(false)
@@ -66,7 +66,7 @@ export default function EditPassword() {
 
     return <>
 
-        <section className="changePassword h-screen flex justify-center items-center">
+        <section className="changePassword h-screen flex bg-white justify-center items-center">
             <form class="w-2/6 px-10 py-10 mx-auto border-2 shadow-2xl border-orange-400 rounded-lg" onSubmit={formik.handleSubmit}>
                 <div className="img flex justify-center">
                     <img src={imgLogo} alt="" className='w-40 mb-10 ' />

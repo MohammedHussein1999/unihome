@@ -171,15 +171,11 @@ export default function NavBar({
               <div className="order-last">
                 <div>
                   <div className="indicator h-[42px] relative cursor-pointer  mr-3">
-<<<<<<< HEAD
                     {/*      <span className="indicator-item text-xs  bg-red-400   badge  text-white ">
-=======
-                    <span className="indicator-item text-xs bg-red-400 badge text-white ">
->>>>>>> 5b93cb3b23df58eba6c3e55c5e3e394f63d2fa09
                       7
                     </span> */}
 
-                    <Link to="Chat">
+                   /*  <Link to="Chat">
                       <BsChatHeart className="inline text-blue-600 text-3xl" />
                     </Link>
                   </div>
@@ -187,16 +183,10 @@ export default function NavBar({
               </div>
             )}
           </div>
-          <div className="">
-<<<<<<< HEAD
+          <div className=""> */
             {/*    <div className="indicator relative cursor-pointer group mr-3">
               <div className=" hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg  min-h-80 min-w-60 border-2	 bg-neutral-100">
                 <div className=" bg-white p-2 rounded-md  w-full">
-=======
-            <div className="indicator relative cursor-pointer group mr-3">
-              <div className="hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg  min-h-80 min-w-60 border-2	 bg-neutral-100">
-                <div className=" bg-white p-2 rounded-md w-full">
->>>>>>> 5b93cb3b23df58eba6c3e55c5e3e394f63d2fa09
                   <h2>Title</h2>
                   <p className=" text-slate-400">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -209,7 +199,7 @@ export default function NavBar({
 
               <IoIosNotificationsOutline className=" text-4xl" />
             </div> */}
-          </div>
+         {/*</div>
 
           <div className="group grow-0 relative m-auto ">
             <div className="avatar flex flex-row flex-nowrap justify-center items-center gap-1">

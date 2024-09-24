@@ -5,7 +5,7 @@ import { GiNotebook } from "react-icons/gi";
 import { TbEyeSearch } from "react-icons/tb";
 
 const Completed = (Session) => {
-  console.log(Session);
+
 
   return (
     <div className="p-4">

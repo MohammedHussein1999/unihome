@@ -5,7 +5,7 @@ import { FaLink } from "react-icons/fa6";
 import Avatar from "../../images/profileImage.png";
 import { AiOutlineMessage } from "react-icons/ai";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const LiveStreamingPage = () => {
@@ -33,8 +33,7 @@ const LiveStreamingPage = () => {
       setDis(false);
     }
   }
-  // console.log(Session);
-  // Countdown effect
+
   useEffect(() => {
     if (timeLeft > 0) {
       const timerId = setInterval(() => {
@@ -146,13 +145,14 @@ const LiveStreamingPage = () => {
                   </span>
                 </div>
               </div>
-              <button
+              <Link
+                to="/Session/:SingleSession/VideoConference"
                 disabled={dis}
                 onClick={handleDis}
                 className="flex disabled:border-none disabled:transform-none disabled:bg-slate-500 items-center justify-center text-white text-lg rounded-3xl py-2 px-4 font-bold bg-blue-600 border-b-4 border-blue-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-blue-700 active:scale-95"
               >
                 Start Lesson
-              </button>
+              </Link>
             </div>
 
             <div className="h-[67vh] lg:h-full bg-gray-200 rounded-lg">

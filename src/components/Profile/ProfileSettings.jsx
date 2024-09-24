@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 export default function ProfileSettings() {
     const [select, setSelect] = useState("Edit Account")
 
     return <>
-        <section className="profileSettings">
+        <section className="profileSettings bg-white">
             <div class="border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 
