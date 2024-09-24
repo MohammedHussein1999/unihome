@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./Sesssion.css";
 import liveStream from "../../images/liveStream.png";
-import { FaLink } from "react-icons/fa6";
 import Avatar from "../../images/profileImage.png";
-import { AiOutlineMessage } from "react-icons/ai";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const LiveStreamingPage = () => {
-  const [sideTimer, setSideTimer] = useState(60 * 60); // 60 minutes in seconds
-  const [mainTimer, setMainTimer] = useState(86400 * 2); // Example: 2 days in seconds
-  const [dataSession, setDataSession] = useState(86400 * 2); // Example: 2 days in seconds
-  const [dis, setDis] = useState(false); // Example: 2 days in seconds
+const LiveStreamingPage = (Session) => {
+  const [sessionId, setSessionId] = useState(null)
+  const [sideTimer, setSideTimer] = useState(60 * 60);
+  const [mainTimer, setMainTimer] = useState(86400 * 2);
+  const [dataSession, setDataSession] = useState(86400 * 2);
+  const [dis, setDis] = useState(false);
   const SingleSession = useParams();
   const token = Cookies.get("accessToken");
-  let Session_id = Number(SingleSession.SingleSession);
-  let dateSection = new Date(`${dataSession.date} ${dataSession.time}`);
+  let Session_id = Number(SingleSession?.SingleSession);
+  let dateSection = new Date(`${dataSession?.date} ${dataSession?.time}`);
   let dateNew = new Date().getTime();
   let DateAll = dateSection - dateNew;
   const [timeLeft, setTimeLeft] = useState(DateAll > 0 ? DateAll : 0);
   let dataUser = JSON.parse(sessionStorage.getItem("user"));
+  const teacherId = dataSession?.teacher_id?.id
+  console.log(teacherId);
+  
+  let nav = useNavigate();
+
   useEffect(() => {
     if (dataUser.type === "teacher") {
       setDis(false);
@@ -33,6 +37,46 @@ const LiveStreamingPage = () => {
       setDis(false);
     }
   }
+
+  async function compeletSession() {
+    try {
+      const response = await axios.post(
+        "https://unih0me.com/api/complete/session",
+        { session_id: sessionId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.error("Error canceling session:", error);
+    }
+  }
+
+  async function inCompeletSession() {
+    try {
+      const response = await axios.post(
+        "https://unih0me.com/api/incomplete/session",
+        { session_id: sessionId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.error("Error canceling session:", error);
+    }
+  }
+
+  useEffect(() => {
+    if (Session?.Session?.id) {
+      setSessionId(Session.Session.id);
+    }
+  }, [])
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -50,6 +94,26 @@ const LiveStreamingPage = () => {
       return () => clearInterval(timerId); // تنظيف المؤقت عند الخروج
     }
   }, [timeLeft]);
+
+  const handleBookingConfirm = async () => {
+    try {
+      let res = await axios.post(
+        "https://unih0me.com/api/auth/session/store",
+        { session_id: dataSession.id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res);
+
+      nav("/Home");
+    } catch (error) {
+      console.error("Error during booking confirmation:", error);
+    }
+  };
 
   useEffect(() => {
     let sessions = async () => {
@@ -196,7 +260,7 @@ const LiveStreamingPage = () => {
               {sideTimer > 0 ? (
                 <span className=" text-green-700">Available</span>
               ) : (
-                <span className=" text-red-700">Available</span>
+                <span className=" text-red-700">not Available</span>
               )}
             </h3>
           </div>
@@ -220,22 +284,35 @@ const LiveStreamingPage = () => {
               </span>
             </div>
           </div>
-          <div className="my-3 flex justify-start items-center gap-3">
-            <button className="flex items-center justify-center text-white text-lg rounded-3xl py-1 px-3 font-bold bg-blue-600 border-b-4 border-blue-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-blue-700 active:scale-95">
+          <div className="my-3 flex sm:justify-center justify-start flex-wrap items-center gap-3">
+            <button
+              onClick={() => {
+                compeletSession();
+                handleBookingConfirm();
+              }}
+              
+              className="flex items-center text-white text-lg rounded-3xl py-1 px-3 font-bold bg-blue-600 border-b-4 border-blue-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-blue-700 active:scale-95"
+            >
               End Lesson
             </button>
-            <button className="flex items-center justify-center text-white text-lg rounded-3xl py-1 px-3 font-bold bg-green-600 border-b-4 border-green-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-green-700 active:scale-95">
+            <Link
+              to="/addQuestion"
+              className="flex items-center justify-center text-white text-lg rounded-3xl py-1 px-3 font-bold bg-green-600 border-b-4 border-green-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-green-700 active:scale-95">
               Create Quiz
+            </Link>
+            <button
+              onClick={() => inCompeletSession()}
+              className="flex items-center justify-center text-white text-lg rounded-3xl py-1 px-3 font-bold bg-orange-500 border-b-4 border-orange-800 transition-transform duration-300 hover:border-b-0 hover:translate-y-0.5 active:outline-none active:bg-orange-700 active:scale-95">
+              Cut Lesson
             </button>
           </div>
           <div className="bg-gray-100 p-3 rounded-lg">
             <h3 className="text-gray-700 mb-3">Actions</h3>
-            <button className="p-3 bg-orange-500 me-3 rounded-full hover:scale-110 transition-all duration-500">
-              <AiOutlineMessage className="text-white" />
-            </button>
-            <button className="p-3 bg-orange-500 me-3 rounded-full hover:scale-110 transition-all duration-500">
-              <FaLink className="text-white" />
-            </button>
+            <Link
+              to={`/chat?id=${teacherId}`}
+              className="p-3 bg-orange-500 me-3 rounded-full hover:scale-110 transition-all duration-500">
+                <span className="text-white font-bold">Message</span>
+            </Link>
           </div>
         </ul>
       </aside>

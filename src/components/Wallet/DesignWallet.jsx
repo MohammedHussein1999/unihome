@@ -10,12 +10,12 @@ const DesignWallet = () => {
   let nameUser = JSON.parse(sessionStorage.getItem("user"));
 
   if (!dataUse || dataUse.length === 0) {
-    return <div>Ned Amount or Loading wallet data...</div>; // عرض رسالة أو مؤشر أثناء التحميل
+    return <div>Ned Amount or Loading wallet data...</div>;
   }
 
   return (
     <>
-      <div className="w-full max-w-5xl mx-auto p-6  bg-gray-100 rounded-lg shadow-lg">
+      <div className="w-full max-w-5xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
         {/* Wallet Info Section */}
         <div className="bg-white select-none p-6 rounded-lg shadow mb-4">
           <div className="flex flex-col md:flex-row justify-between items-center mb-4">
@@ -54,7 +54,7 @@ const DesignWallet = () => {
         </div>
 
         {/* Transactions Section */}
-        <div className="bg-white rounded-lg shadow ">
+        <div className="bg-white rounded-lg shadow overflow-scroll">
           <table className="w-full text-sm text-gray-500 text-center">
             <thead className="text-xs text-gray-700 uppercase bg-gray-200">
               <tr>
@@ -101,8 +101,6 @@ const DesignWallet = () => {
                     <td></td>
                   )}
 
-                  {/* <td className="px-2 py-4 font-bold"></td> */}
-
                   <td className="px-2 py-4 font-bold text-blue-500">
                     EGP {e.totalAmount}
                   </td>
@@ -126,7 +124,7 @@ const DesignWallet = () => {
                   </td>
                 </tr>
               ))}
-              ;
+              
             </tbody>
           </table>
         </div>

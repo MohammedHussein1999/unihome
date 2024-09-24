@@ -14,7 +14,7 @@ export default function ResultQuestionForTeacher() {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl p-6">
         <div className="w-full md:w-[550px] lg:w-[750px] xl:w-[900px]">
       <div className="mb-6">
         <h2 className="text-6xl font-light font-[Jomhuria-R]">Result :</h2>
@@ -26,7 +26,7 @@ export default function ResultQuestionForTeacher() {
         </p>
       </div>
       {/* Table of results */}
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

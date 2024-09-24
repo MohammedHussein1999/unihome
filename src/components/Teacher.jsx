@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -7,14 +7,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { FaChalkboardTeacher } from "react-icons/fa";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineMessage } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import Modal from "react-modal";
-import Avatar from "../images/profileImage.png"; // Update with your image path
+import Avatar from "../images/profileImage.png";
 import Reviews from "./Reviews/Reviews";
 import countries from "./flag.json";
 
-// Setting up the popup modal
 Modal.setAppElement("#root");
 
 export default function Teacher() {
@@ -27,7 +26,7 @@ export default function Teacher() {
 
   const getCountryFlag = (countryName) => {
     const country = countries.find((c) => c.country === countryName);
-    return country ? country.flag : ""; // Return the flag or an empty string if not found
+    return country ? country.flag : "";
   };
 
   const Teacher_id = Number(Teacher);
@@ -218,14 +217,22 @@ export default function Teacher() {
           <div className="text-center">
             <BsPeople className="text-3xl text-yellow-500 mb-2 mx-auto" />
             <p className="text-gray-800 font-semibold">
-              <span className="block text-2xl">{dataApi?.students.length}</span>{" "}
+              <span className="block text-2xl">{dataApi?.students?.length}</span>{" "}
               Students
             </p>
           </div>
+          <Link
+          to={`/chat?id=${Teacher_id}`}
+        >
+          <button className="flex items-center justify-start px-3 py-2 text-sm font-medium text-white transition-transform duration-300 transform bg-blue-500 rounded-lg sm:px-4 sm:text-base hover:scale-105">
+            <AiOutlineMessage className="mr-1" />
+            Message
+          </button>
+        </Link>
           <div className="text-center">
             <FaChalkboardTeacher className="text-3xl text-yellow-500 mb-2 mx-auto" />
             <p className="text-gray-800 font-semibold">
-              <span className="block text-2xl">{dataApi?.sessions.length}</span>{" "}
+              <span className="block text-2xl">{dataApi?.sessions?.length}</span>{" "}
               Sessions
             </p>
           </div>

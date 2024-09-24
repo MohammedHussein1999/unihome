@@ -1,6 +1,8 @@
 import React from "react";
 import Avatar from "../../images/profile.jpg";
 import { AiOutlineMessage } from "react-icons/ai";
+import { GiNotebook } from "react-icons/gi";
+import { TbEyeSearch } from "react-icons/tb";
 import countries from "../flag.json";
 
 // Utility function to convert 24-hour time to 12-hour format with AM/PM
@@ -21,7 +23,7 @@ const addOneHour = (time24) => {
   return `${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`;
 };
 
-const Cancelled = (Session) => {
+const InCompeleted = (Session) => {
   const getCountryFlag = (countryName) => {
     const country = countries.find((c) => c.country === countryName);
     return country ? country.flag : ""; // Return the flag or an empty string if not found
@@ -35,7 +37,7 @@ const Cancelled = (Session) => {
   const formattedStartTime = convertTo12HourFormat(startTime);
   const formattedEndTime = convertTo12HourFormat(endTime);
 
-  if (Session.Session.status !== "canceled") {
+  if (Session.Session.status !== "incompleted") {
     return null
   }
 
@@ -94,13 +96,19 @@ const Cancelled = (Session) => {
         <div className="text-center mb-6 bg-gray-100 p-3 rounded-lg flex flex-col sm:flex-row justify-around items-center space-y-4 sm:space-y-0">
           <div className="text-center">
             <h3 className="text-gray-500 text-sm lg:text-base">Status</h3>
-            <p className=" text-green-500 font-bold">{Session.Session.status ? "cancelld" : null}</p>
+            <p className=" text-green-500 font-bold">{Session.Session.status}</p>
           </div>
           <div>
             <h3 className="text-gray-500 text-sm lg:text-base mb-3">Actions</h3>
             <div className="flex flex-wrap justify-center space-x-2">
               <button className="p-2 sm:p-3 bg-orange-500 rounded-full hover:scale-110 transition-all duration-500">
+                <TbEyeSearch className="text-white" />
+              </button>
+              <button className="p-2 sm:p-3 bg-orange-500 rounded-full hover:scale-110 transition-all duration-500">
                 <AiOutlineMessage className="text-white" />
+              </button>
+              <button className="p-2 sm:p-3 bg-orange-500 rounded-full hover:scale-110 transition-all duration-500">
+                <GiNotebook className="text-white" />
               </button>
             </div>
           </div>
@@ -110,4 +118,4 @@ const Cancelled = (Session) => {
   );
 };
 
-export default Cancelled;
+export default InCompeleted;

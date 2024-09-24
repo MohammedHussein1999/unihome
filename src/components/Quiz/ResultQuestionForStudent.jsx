@@ -17,7 +17,7 @@ export default function ResultQuestionForStudent() {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl p-6">
       <div className="w-full md:w-[550px] lg:w-[750px] xl:w-[900px]">
         <div className="mb-6">
           <h2 className="text-6xl font-light font-[Jomhuria-R]">Result :</h2>

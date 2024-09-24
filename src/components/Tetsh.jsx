@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Suspense, useState } from "react";
 
 import Test from "./Test";
-import InstructorCard from "./InstructorCard";
+import InstructorCard from "./InstractorCard/InstructorCard";
 import axios from "axios";
 
 function SampleNextArrow(props) {

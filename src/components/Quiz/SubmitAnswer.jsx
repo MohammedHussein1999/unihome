@@ -73,7 +73,7 @@ export default function SubmitAnswer() {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl p-6">
       {!selectedQuiz ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {quizzes.map((quiz, index) => (

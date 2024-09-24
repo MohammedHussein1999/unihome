@@ -1,4 +1,3 @@
-
 import "./index.css";
 import "flowbite";
 import "tw-elements";
@@ -8,24 +7,36 @@ import ReactDOM from "react-dom/client";
 import "tw-elements-react/dist/css/tw-elements-react.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import Cookies from "js-cookie";
 
 import Home from "./components/Home";
 import About from "./components/About";
 import App from "./App";
 import Dashboard from "./components/Dashboard";
 import Tetsh from "./components/Tetsh";
-
 import Chat from "./components/Chat";
-
 import TeacherS from "./components/TeacherS";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Teacher2 from "./components/Teacher2";
+import Teacher from "./components/Teacher";
 import Support from "./components/Support";
-import { Toaster } from "react-hot-toast";
 import LiveStreamingPage from "./components/Sessions/LiveStreamingPage";
+import { Toaster } from "react-hot-toast";
+import VideoConference from "./components/Sessions/VideoConference ";
+import AddQuestions from "./components/Quiz/AddQuestions";
+import RoutingSting from "./components/Profile/RoutingSting";
+import DesignWallet from "./components/Wallet/DesignWallet";
+
+// تعريف عنصر ProtectedRoute
+function ProtectedRoute({ children }) {
+  const token = Cookies.get("accessToken");
+  return token ? children : <Navigate to="/" />; // إذا لم يكن هناك token، يتم إعادة التوجيه إلى صفحة تسجيل الدخول
+}
 
 const routes = [
   {
@@ -38,11 +49,19 @@ const routes = [
       },
       {
         path: "home",
-        element: <Home />,
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "teth", // تأكد من أن المسار يتوافق مع ما تريد
-        element: <Tetsh />,
+        element: (
+          <ProtectedRoute>
+            <Tetsh />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "about",
@@ -50,39 +69,87 @@ const routes = [
       },
       {
         path: "dd",
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "chat",
-        element: <Chat />,
+        element: (
+          <ProtectedRoute>
+            <Chat />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "TeacherS",
-        element: <TeacherS />,
+        element: (
+          <ProtectedRoute>
+            <TeacherS />
+          </ProtectedRoute>
+        ),
       },
       {
-        path: "TeacherS/:Teacher2", // استخدم اسم متغير منطقي
-        element: <Teacher2 />,
-      },
-      /*   {
         path: "TeacherS/:Teacher", // استخدم اسم متغير منطقي
-        element: <Teacher />,
-      }, */
+        element: (
+          <ProtectedRoute>
+            <Teacher />
+          </ProtectedRoute>
+        ),
+      },
       {
-        path: "register", // استخدم اسم متغير منطقي
+        path: "register",
         element: <Register />,
       },
       {
-        path: "/Session/:SingleSession", // استخدم اسم متغير منطقي
-        element: <LiveStreamingPage />,
+        path: "/Session/:SingleSession",
+        element: (
+          <ProtectedRoute>
+            <LiveStreamingPage />
+          </ProtectedRoute>
+        ),
       },
       {
-        path: "support", // Added support path here
-        element: <Support />,
+        path: "support",
+        element: (
+          <ProtectedRoute>
+            <Support />
+          </ProtectedRoute>
+        ),
       },
       {
-        path: "Session/:SingleSession/VideoConference", // Added support path here
-        element: <Support />,
+        path: "Session/:SingleSession/VideoConference",
+        element: (
+          <ProtectedRoute>
+            <VideoConference/>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "addQuestion",
+        element: (
+          <ProtectedRoute>
+            <AddQuestions/>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "setting",
+        element: (
+          <ProtectedRoute>
+            <RoutingSting/>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "wallet",
+        element: (
+          <ProtectedRoute>
+            <DesignWallet/>
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -101,4 +168,3 @@ root.render(
     <Toaster position="top-center" reverseOrder={false} />
   </React.StrictMode>
 );
-

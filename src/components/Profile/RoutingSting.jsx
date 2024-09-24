@@ -8,7 +8,7 @@ import {
 
 import Account from "./Account";
 import EditPassword from "./EditPassword";
-import ProfileSettings from "./ProfileSettings";
+// import ProfileSettings from "./ProfileSettings";
 
 export default function RoutingSting() {
   
@@ -44,7 +44,7 @@ export default function RoutingSting() {
               colorsActive.tab8 === "tab1" ? "ActivetabsOfRoute" : ""
             }`}
           >
-            Lessons
+            Account
           </TETabsItem>
           <TETabsItem
             onClick={() => handleColorsClick({ ...colorsActive, tab8: "tab2" })}
@@ -53,17 +53,17 @@ export default function RoutingSting() {
               colorsActive.tab8 === "tab2" ? "ActivetabsOfRoute" : ""
             }`}
           >
-            Completed
+            Password
           </TETabsItem>
-          <TETabsItem
+          {/* <TETabsItem
             onClick={() => handleColorsClick({ ...colorsActive, tab8: "tab3" })}
             active={colorsActive.tab8 === "tab3"}
             className={`${tabButtonStyles} ${
               colorsActive.tab8 === "tab3" ? "ActivetabsOfRoute" : ""
             }`}
           >
-            Cancelled
-          </TETabsItem>
+            Profile
+          </TETabsItem> */}
         </TETabs>
       </div>
 
@@ -76,9 +76,9 @@ export default function RoutingSting() {
           <TETabsPane show={colorsActive.tab8 === "tab2"}>
             <EditPassword />
           </TETabsPane>
-          <TETabsPane show={colorsActive.tab8 === "tab3"}>
+          {/* <TETabsPane show={colorsActive.tab8 === "tab3"}>
             <ProfileSettings />
-          </TETabsPane>
+          </TETabsPane> */}
         </TETabsContent>
       </div>
     </div>

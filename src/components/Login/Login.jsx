@@ -26,6 +26,7 @@ export default function Login() {
 
       sessionStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/Home");
+      window.location.reload();
     } catch (error) {
       setError("The email or password you entered doesn't match");
     }
@@ -49,7 +50,7 @@ export default function Login() {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <section className="h-screen login flex flex-row  flex-wrap justify-around items-center		">
+      <section className="h-full login flex flex-row  flex-wrap justify-around items-center		">
         <div className="uniHomeImg xl:basis-1/3 md:basis-3/5 basis-7/12 ">
           <img src={imgLogin} alt="img Login" className=" w-[95vw] m-auto" />
         </div>
@@ -122,74 +123,54 @@ export default function Login() {
               {/* /api/socialite/facebook */}
               <a
                 href="#"
-                className=" flex items-center justify-center mt-6  text-white rounded-full shadow-md hover:bg-gray-100"
+                className=" flex items-center justify-center mt-4 text-white rounded-full shadow-md hover:bg-gray-100"
               >
-                <div className="flex px-5 justify-center items-center  w-full py-3">
-                  <div className="w-5/12 flex justify-between items-center">
-                    <div className="min-w-[30px]">
-                      <svg className="h-9 w-9" viewBox="0 0 40 40">
-                        <path
-                          d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
-                          fill="#FF3D00"
-                        />
-                        <path
-                          d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
-                          fill="#4CAF50"
-                        />
-                        <path
-                          d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                          fill="#1976D2"
-                        />
-                      </svg>
-                    </div>
-                    <div className="textGoogle">
-                      <h1 className="whitespace-nowrap text-gray-600 font-bold text-lg">
-                        <span className="w-9 text-red-400">
-                          Sign in with Google
-                        </span>
-                      </h1>
-                    </div>
+                <div className="flex px-5 justify-center w-full py-3">
+                  <div className="min-w-[30px]">
+                    <svg className="h-6 w-6" viewBox="0 0 40 40">
+                      <path
+                        d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+                        fill="#FFC107"
+                      />
+                      <path
+                        d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
+                        fill="#FF3D00"
+                      />
+                      <path
+                        d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
+                        fill="#4CAF50"
+                      />
+                      <path
+                        d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
+                        fill="#1976D2"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex w-full justify-center">
+                    <h1 className="whitespace-nowrap text-gray-600 font-bold">
+                      Sign in with Google
+                    </h1>
                   </div>
                 </div>
               </a>
 
               <a
                 href="#"
-                className=" flex items-center justify-center mt-6  text-white rounded-full shadow-md hover:bg-gray-100"
+                className="flex items-center justify-center my-6 text-white rounded-full shadow-md hover:bg-gray-100"
               >
-                <div className="flex px-5 justify-center items-center  w-full py-3">
-                  <div className="w-5/12 flex justify-between items-center">
-                    <div className="min-w-[30px]">
-                      <svg className="h-9 w-9" viewBox="0 0 40 40">
-                        <path
-                          d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
-                          fill="#FF3D00"
-                        />
-                        <path
-                          d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
-                          fill="#4CAF50"
-                        />
-                        <path
-                          d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                          fill="#1976D2"
-                        />
-                      </svg>
-                    </div>
-                    <div className="textGoogle">
-                      <h1 className="whitespace-nowrap text-gray-600 font-bold text-lg">
-                        <span className="w-9 text-red-400">
-                          Sign in with Facebook
-                        </span>
-                      </h1>
-                    </div>
+                <div className="flex px-5 justify-center w-full py-3">
+                  <div className="min-w-[30px]">
+                    <svg className="h-6 w-6" viewBox="0 0 40 40">
+                      <path
+                        d="M20 0C8.955 0 0 8.955 0 20c0 9.157 6.379 16.703 14.688 19.217v-13.607H10.297V20h4.391v-3.25c0-4.343 2.578-6.75 6.49-6.75 1.883 0 3.943.344 3.943.344v4.308h-2.22c-2.188 0-2.875 1.355-2.875 2.743V20h4.687l-.75 5.61h-3.938V39.217C33.621 36.703 40 29.157 40 20c0-11.045-8.955-20-20-20z"
+                        fill="#3b5998"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex w-full justify-center">
+                    <h1 className="whitespace-nowrap text-gray-600 font-bold">
+                      Sign in with Facebook
+                    </h1>
                   </div>
                 </div>
               </a>

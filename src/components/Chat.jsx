@@ -142,100 +142,112 @@ export default function Chat() {
   }, []);
 
   return (
-    <div className="flex flex-row">
-      <div className="min-w-40 shadow-lg border-black">
-        <input
-          type="search"
-          placeholder="Type here"
-          className="input input-ghost focus:outline-none h-8 border border-slate-400 w-full max-w-xs"
-        />
-        <div className="flex flex-row flex-wrap rtl:flex-row-reverse">
-          <TETabs ref={newMs} vertical className="w-full flex">
-            {dataUserSHat.map((e) => (
-              <TETabsItem
-                key={e.id}
-                onClick={() => handleVerticalClick(e.id)} // عند النقر، تحديث المستخدم النشط
-                active={verticalActive === e.id}
-              >
-                <div className="flex flex-row justify-center gap-3 text-start w-full items-center">
-                  <div className="chat-image avatar">
-                    <div className="w-10 rounded-xl">
-                      <img alt="User Avatar" src={e.image} />
+    <>
+      <div className="flex flex-col md:flex-row bg-gradient-to-r from-orange-100 via-purple-100 to-indigo-200 shadow-xl rounded-xl p-4 gap-4">
+        {/* Sidebar Section */}
+        <div className="min-w-60 shadow-lg border-r border-gray-300 bg-white p-4 rounded-xl overflow-hidden">
+          <h1 className="ps-2 text-6xl font-light font-[Jomhuria-R]">Chat:</h1>
+          <input
+            type="search"
+            placeholder="Search messages"
+            className="input input-ghost focus:outline-none h-10 border border-gray-300 w-full mb-4 rounded-lg px-3 text-sm"
+          />
+          <div className="flex flex-col space-y-3">
+            <TETabs ref={newMs} vertical className="w-full">
+              {dataUserSHat.map((e) => (
+                <TETabsItem
+                  key={e.id}
+                  onClick={() => handleVerticalClick(e.id)}
+                  active={verticalActive === e.id}
+                  className={`p-3 flex items-center rounded-lg cursor-pointer transition-all duration-200 transform ${verticalActive === e.id
+                    ? "bg-orange-500 text-white shadow-md scale-105"
+                    : "hover:bg-orange-100 hover:shadow-sm text-gray-700"
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="chat-image avatar">
+                      <div className="w-12 rounded-full border-2 border-orange-500">
+                        <img alt="User Avatar" src={e.image} />
+                      </div>
+                    </div>
+                    <div>
+                      <h2 className="font-semibold text-lg">{e.firstname}</h2>
+                      <p className="text-sm text-gray-500 truncate">{e.messageSnippet}</p>
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <h2 className="font-bold text-black">{e.firstname}</h2>
-                  </div>
-                </div>
-              </TETabsItem>
-            ))}
-          </TETabs>
+                </TETabsItem>
+              ))}
+            </TETabs>
+          </div>
         </div>
-      </div>
-      <div className="w-4/5">
-        <div className="h-screen rounded-lg w-full md:w-full bg-white">
+
+        {/* Main Chat Section */}
+        <div className="w-full md:w-4/5 bg-white p-4 rounded-xl shadow-lg">
           <TETabsContent>
             {dataUserSHat.map((response) => (
               <TETabsPane
                 key={response.id}
-                show={verticalActive === response.id} // عرض الرسائل للمستخدم النشط فقط
+                show={verticalActive === response.id}
+                className="h-full"
               >
-                <div className="flex flex-col justify-between h-screen">
-                  <div className="border-b flex p-2 px-3 flex-row justify-start gap-3 text-start w-full items-center">
+                <div className="flex flex-col justify-between h-full">
+                  {/* Chat Header */}
+                  <div className="border-b p-4 bg-orange-500 text-white flex items-center gap-4 rounded-t-lg shadow-sm">
                     <div className="chat-image avatar">
-                      <div className="w-10 rounded-xl">
+                      <div className="w-12 rounded-full border-2 border-white">
                         <img alt="User Avatar" src={response.image} />
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <h2 className="font-bold text-black">
-                        {response.firstname}
-                      </h2>
-                      <span className="opacity-60">Online</span>
+                    <div>
+                      <h2 className="font-bold text-xl">{response.firstname}</h2>
+                      <span className="text-sm opacity-80">Online</span>
                     </div>
                   </div>
-                  <div className="p-5 h-full flex flex-col 	 	 overflow-y-auto">
+
+                  {/* Messages Section */}
+                  <div className="p-5 flex-1 overflow-y-auto bg-gray-50 space-y-4">
                     {messages.map((msg, index) => (
                       <div
                         key={index}
-                        className={`chat ${
-                          msg.sender_id === user.id ? "chat-end" : "chat-start"
-                        }`}
+                        className={`flex ${msg.sender_id === user.id ? "justify-end" : "justify-start"
+                          }`}
                       >
                         <div className="chat-image avatar">
                           <div className="w-10 rounded-full">
                             <img
                               alt="Chat Avatar"
-                              src={
-                                msg.sender_id === user.id
-                                  ? user.image
-                                  : response.image
-                              }
+                              src={msg.sender_id === user.id ? user.image : response.image}
                             />
                           </div>
                         </div>
-
-                        <div className="chat-bubble">{msg.message}</div>
-
-                        <div className="chat-footer opacity-50">Delivered</div>
-                        <div className="chat-header">
-                          {response.firstname}
-                          <time className="text-xs opacity-50">12:46</time>
+                        <div
+                          className={`chat-bubble px-4 py-2 rounded-lg shadow-sm ${msg.sender_id === user.id
+                            ? "bg-orange-500 text-white shadow-md"
+                            : "bg-gray-200 text-gray-800"
+                            }`}
+                        >
+                          {msg.message}
+                        </div>
+                        <div className="chat-footer opacity-50 text-xs ml-2">
+                          {msg.sender_id === user.id ? "You" : response.firstname}
+                          <time className="block">{msg.timestamp}</time>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="p-3 w-full flex flex-row items-center gap-3">
+
+                  {/* Message Input */}
+                  <div className="p-3 w-full flex items-center gap-3 bg-gray-100 rounded-b-lg">
                     <input
                       type="text"
-                      placeholder="Type here"
+                      placeholder="Type your message..."
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}
-                      className="input input-ghost focus:outline-none h-10 border w-full border-slate-400"
+                      className="input input-ghost focus:outline-none h-12 border w-full border-gray-300 text-gray-800 bg-white rounded-lg px-3 text-sm"
                     />
                     <button
                       onClick={sendMessage}
-                      className="btn btn-primary mt-2"
+                      className="px-5 py-2 bg-orange-500 text-white font-bold hover:bg-orange-600 rounded-lg shadow-md transform transition-transform duration-150 active:scale-95"
                     >
                       Send
                     </button>
@@ -246,6 +258,6 @@ export default function Chat() {
           </TETabsContent>
         </div>
       </div>
-    </div>
+    </>
   );
 }

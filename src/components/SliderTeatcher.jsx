@@ -4,30 +4,9 @@ import axios from "axios";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-next-arrow`}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} custom-next-arrow`}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
-  );
-}
 
 export default function SliderTeatcher() {
-  const InstructorCard = lazy(() => import("./InstructorCard"));
+  const InstructorCard = lazy(() => import("./InstractorCard/InstructorCard"));
   const [dataApi, setDataApi] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -38,51 +17,44 @@ export default function SliderTeatcher() {
 
       setLoading(false);
     } catch (error) {
-      setLoading(false); // Ensure loading state is set to false even if an error occurs
+      setLoading(false);
     }
   };
 
-  // Fetch data on component mount
   useEffect(() => {
     apiData();
   }, []);
 
   const settings = {
-    dots: false,
-    infinite: false,
-    speed: 600,
-    adaptiveHeight: true,
-    swipeToSlide: true,
-    variableWidth: true,
-    slidesToShow: 4,
+    infinite: true,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 1500,
+    arrows: false,
+    adaptiveHeight: true,
+    focusOnSelect: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 750,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
         },
       },
     ],
   };
+
   return (
-    <div className="slider-container p-10">
+    <div className="p-6">
       {loading ? (
-        <div className="w-full flex justify-evenly items-center my-10">
+        <div className="w-full flex justify-center items-center mx-auto my-10">
           <Suspense fallback={<div>Loading...</div>}>
             <Test />
             <Test />
@@ -92,11 +64,11 @@ export default function SliderTeatcher() {
         </div>
       ) : (
         <Slider {...settings}>
-          {dataApi.map((e) => (
+          {dataApi?.map((e) => (
             <Link
               to={`/TeaCherS/${e.id}`}
               key={e.id}
-              className="transform my-20 hover:scale-105 translate duration-200 ease-in"
+              className="my-10 hover:scale-105 duration-500 transition-all"
             >
               <Suspense fallback={<div>Loading Card...</div>}>
                 <InstructorCard
@@ -104,9 +76,10 @@ export default function SliderTeatcher() {
                   firstName={e.firstname}
                   lastName={e.lastname}
                   country={e.country}
-                  students={e.students.length}
-                  Lessons={e.sessions.length}
+                  students={e.students?.length}
+                  Lessons={e.sessions?.length}
                   type={e.type}
+                  className="bg-white rounded-lg shadow-md px-6 py-8 max-w-md mt-6 relative"
                 />
               </Suspense>
             </Link>
@@ -114,5 +87,6 @@ export default function SliderTeatcher() {
         </Slider>
       )}
     </div>
+
   );
 }

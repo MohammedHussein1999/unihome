@@ -60,9 +60,9 @@ export default function Account() {
 
   return (
     <>
-      <section className="bg-white overflow-auto accountSettings pt-10 ps-10">
+      <section className="p-5 bg-gray-100 rounded-3xl max-w-lg sm:max-w-xl lg:max-w-4xl accountSettings mx-auto">
         <div
-          className="flex flex-col md:flex-row justify-between flex-wrap"
+          className="w-full flex flex-col md:flex-row justify-between flex-wrap"
           id="profileSetting"
         >
           {/* Form Section */}
@@ -105,7 +105,7 @@ export default function Account() {
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="basis-full md:basis-1/2 px-3">
+                <div className="basis-full  w-full px-3">
                   <label
                     className="block capitalize tracking-wide text-blue-600 text-sm font-bold mb-2 ms-5"
                     htmlFor="grid-whats"
@@ -122,7 +122,7 @@ export default function Account() {
                     onChange={input}
                   />
                 </div>
-                <div className="flex flex-col basis-full md:basis-1/2 gap-2 px-3">
+                <div className="flex flex-col basis-full w-full  gap-2 px-3">
                   <label className="block capitalize tracking-wide text-blue-600 text-sm font-bold ms-6">
                     Gender
                   </label>

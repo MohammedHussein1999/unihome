@@ -90,7 +90,7 @@ export default function Register() {
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <section className="h-screen register flex flex-row  flex-wrap justify-around items-center		">
+      <section className="h-full register flex flex-row flex-wrap justify-around items-start">
         <div className="uniHomeImg xl:basis-1/3 md:basis-3/5 basis-7/12 ">
           <img src={imgRegister} alt="img Register" className="w-4/5 m-auto" />
         </div>

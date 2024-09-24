@@ -15,9 +15,6 @@ export default function NavBar({
   showChat,
 }) {
   let dataUser = JSON.parse(sessionStorage.getItem("user"));
-  
-
-
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -49,10 +46,10 @@ export default function NavBar({
 
             {/* Notification Icon */}
             <div className="indicator relative cursor-pointer group mr-3">
-              <div className="hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg min-h-80 min-w-60 border-2 bg-neutral-100">
+              <div className="hidden p-3 absolute z-[70] -left-40 top-11 group-hover:block rounded-lg min-h-80 min-w-60 border-2 bg-neutral-100 sm:min-w-80 md:min-w-96 lg:min-w-72 md:right-0 md:top-9">
                 <div className="bg-white p-2 rounded-md w-full">
-                  <h2>Title</h2>
-                  <p className="text-slate-400">
+                  <h2 className="text-base md:text-lg lg:text-xl">Title</h2>
+                  <p className="text-xs md:text-sm lg:text-base text-slate-400">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   </p>
                 </div>
@@ -62,6 +59,7 @@ export default function NavBar({
               </span>
               <MdNotificationsActive className="text-4xl text-yellow-300 mt-2" />
             </div>
+
 
             <div className="text-xl font-bold text-gray-500 flex justify-center gap-2 items-center capitalize"><span className="text-orange-500 text-2xl">Hi </span>{dataUser.firstname}</div>
             {/* User Profile */}
@@ -98,11 +96,12 @@ export default function NavBar({
                     to="/TeacherS"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
-                    Find your Teacher
+                    Teachers
                   </Link>
                 </li>
                 <li>
                   <Link
+                  to="/setting"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Settings
@@ -110,6 +109,15 @@ export default function NavBar({
                 </li>
                 <li>
                   <Link
+                  to="/wallet"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  >
+                    Wallet
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                  to="/logout"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Sign out
@@ -123,111 +131,3 @@ export default function NavBar({
     </>
   );
 }
-
-
-{/* {AccessToken()} */ }
-{/* <div className="navbar px- bg-white text-black ">
-        <div className="container justify-between space-x-5 flex flex-row">
-        <div className="grow-0 w-max">
-          <Link to="/Home" className="">
-            <img className="w-20 h-20" src={UniHomeLogo} alt="logo" />
-          </Link>
-        </div>
-        <div className=" group">
-          <div className="flex-none flex-nowrap flex-row left-0 z-[99]">
-            <ul className="menu menu-horizontal max-md:flex max-md:flex-col">
-              {showLink1 && (
-                <li className="text-2xl font-bold">
-                  <Link to="/TeacherS">{link1}</Link>
-                </li>
-              )}
-
-              {showLink2 && (
-                <li>
-                  <Link to="">{link2}</Link>
-                </li>
-              )}
-
-              {showLink3 && (
-                <li className="order-last">
-                  <Link to="Chat">
-                    {link4}
-                    <BsChatHeart className="text-red-500 text-2xl" />
-                  </Link>
-                </li>
-              )}
-
-              {showLink4 && (
-                <li className=" w-28">
-                  <Link to="">{link3}</Link>
-                </li>
-              )}
-            </ul>
-          </div>
-        </div>
-        <div className="gap-x-3 flex justify-center items-center">
-          <div className="gap-x-2 flex-nowrap flex flex-row ">
-            {showChat && (
-              <div className="order-last">
-                <div>
-                  <div className="indicator h-[42px] relative cursor-pointer  mr-3">
-                    {/*      <span className="indicator-item text-xs  bg-red-400   badge  text-white ">
-                      7
-                    </span> */}
-
-                   /*  <Link to="Chat">
-                      <BsChatHeart className="inline text-blue-600 text-3xl" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          <div className=""> */
-            {/*    <div className="indicator relative cursor-pointer group mr-3">
-              <div className=" hidden py-3 absolute z-[70] right-0 top-9 group-hover:block rounded-lg  min-h-80 min-w-60 border-2	 bg-neutral-100">
-                <div className=" bg-white p-2 rounded-md  w-full">
-                  <h2>Title</h2>
-                  <p className=" text-slate-400">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-              <span className="indicator-item text-xs bg-blue-600 badge text-white">
-                2
-              </span>
-
-              <IoIosNotificationsOutline className=" text-4xl" />
-            </div> */}
-         {/*</div>
-
-          <div className="group grow-0 relative m-auto ">
-            <div className="avatar flex flex-row flex-nowrap justify-center items-center gap-1">
-              <div className="w-16 h-16 rounded-full">
-                <img src={dataUser.img} alt="" />
-              </div>
-              <span>
-                {dataUser.firstName}
-                <IoMdArrowDropdown className="inline text-lg" />
-              </span>
-            </div>
-            <span className="absolute z-[75] top-16 min-w-36 rounded-md bg-neutral-100 group-hover:block right-0 hidden">
-              <ul className=" list-none w-full ">
-                <li className="py-3 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
-                  <Link to="DD">Dashboard</Link>
-                </li>
-                <li className="py-3 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
-                  <Link>My Teacher</Link>
-                </li>
-                <li className="py-3 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
-                  <Link>Settings</Link>
-                </li>
-                <li className="py-3 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
-                  <Link>LogOut</Link>
-                </li>
-              </ul>
-            </span>
-          </div>
-          </div>
-        </div>
-      </div> */}
