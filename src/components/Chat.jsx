@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 import { useRef } from "react";
 
 export default function Chat() {
-  const [verticalActive, setVerticalActive] = useState(null); // غيرنا القيمة الافتراضية
+  const [verticalActive, setVerticalActive] = useState(); // غيرنا القيمة الافتراضية
   const [messages, setMessages] = useState([]);
   const [dataUserSHat, setDataUserSHat] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -22,8 +22,9 @@ export default function Chat() {
   const newMs = useRef();
   // const { userTable } = useContext(apiWallet);
   const idParm = new URLSearchParams(location.search);
-
-  const idT = idParm.get("id");
+  
+  const idT = Number(idParm.get("id"));
+  console.log(idT);
 
   useEffect(() => {
     const fetchUsers = async () => {

@@ -6,14 +6,13 @@ import SupportIcon from "./components/SupportIcon";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { AccessToken } from "./AccessToken";
 
 export const apiWallet = createContext(null);
 
 export default function App() {
   const [dataUse, setDataUse] = useState([]);
   const [refAPI, setRefAPI] = useState([]);
-  const [show, setShow] = useState(false);
+
   const [userTable, setUserTable] = useState();
   const loc = useLocation();
 
@@ -49,7 +48,7 @@ export default function App() {
     };
 
     refreshToken();
-  }, 360000);
+  }, 660000);
 
   useEffect(() => {
     const getWalletData = async () => {
@@ -66,10 +65,7 @@ export default function App() {
       }
     };
 
-    !token ? console.log("ss") : getWalletData();
-    loc.pathname === "/" || loc.pathname === "/register"
-      ? setShow(false)
-      : setShow(true);
+    getWalletData();
   }, [loc.pathname, refAPI]);
 
   return (
@@ -79,16 +75,18 @@ export default function App() {
       >
         <div>
           {/* عرض الـ NavBar إذا كان show true */}
-          {show && (
+          {/*   {show && (
             <div className=" m-auto">
-              <NavBar
-                link1="Find a Teacher"
-                link2="Home"
-                link3="About"
-                link4="Chat"
-                showChat={true}
-                showLink1={true}
-              />
+              <NavBar showLink1={true} />
+            </div>
+          )} */}
+          {token ? (
+            <div className=" m-auto">
+              <NavBar showLink4={false} showLink1={true} />
+            </div>
+          ) : (
+            <div className=" m-auto">
+              <NavBar showLink4={true} showLink1={false} />
             </div>
           )}
           <main className="min-h-screen  w-full  py-6 bg-[#eee]">

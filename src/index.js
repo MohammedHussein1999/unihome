@@ -32,10 +32,11 @@ import AddQuestions from "./components/Quiz/AddQuestions";
 import RoutingSting from "./components/Profile/RoutingSting";
 import DesignWallet from "./components/Wallet/DesignWallet";
 
+
 // تعريف عنصر ProtectedRoute
 function ProtectedRoute({ children }) {
   const token = Cookies.get("accessToken");
-  return token ? children : <Navigate to="/" />; // إذا لم يكن هناك token، يتم إعادة التوجيه إلى صفحة تسجيل الدخول
+  return token ? children : <Navigate to="/Home" />; // إذا لم يكن هناك token، يتم إعادة التوجيه إلى صفحة تسجيل الدخول
 }
 
 const routes = [
@@ -43,17 +44,15 @@ const routes = [
     path: "/",
     element: <App />, // يستخدم مكون App كمكون أساسي
     children: [
+   
       {
-        index: true, // تحديد الصفحة الافتراضية عند الوصول إلى /
+        path: "LogIn",
         element: <Login />,
       },
       {
-        path: "home",
-        element: (
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        ),
+        index: true,
+        path: "Home",
+        element: <Home />,
       },
       {
         path: "teth", // تأكد من أن المسار يتوافق مع ما تريد
@@ -68,7 +67,7 @@ const routes = [
         element: <About />,
       },
       {
-        path: "dd",
+        path: "Dashboard",
         element: (
           <ProtectedRoute>
             <Dashboard />
@@ -85,11 +84,7 @@ const routes = [
       },
       {
         path: "TeacherS",
-        element: (
-          <ProtectedRoute>
-            <TeacherS />
-          </ProtectedRoute>
-        ),
+        element: <TeacherS />,
       },
       {
         path: "TeacherS/:Teacher", // استخدم اسم متغير منطقي
@@ -123,7 +118,7 @@ const routes = [
         path: "Session/:SingleSession/VideoConference",
         element: (
           <ProtectedRoute>
-            <VideoConference/>
+            <VideoConference />
           </ProtectedRoute>
         ),
       },
@@ -131,7 +126,7 @@ const routes = [
         path: "addQuestion",
         element: (
           <ProtectedRoute>
-            <AddQuestions/>
+            <AddQuestions />
           </ProtectedRoute>
         ),
       },
@@ -139,7 +134,7 @@ const routes = [
         path: "setting",
         element: (
           <ProtectedRoute>
-            <RoutingSting/>
+            <RoutingSting />
           </ProtectedRoute>
         ),
       },
@@ -147,7 +142,7 @@ const routes = [
         path: "wallet",
         element: (
           <ProtectedRoute>
-            <DesignWallet/>
+            <DesignWallet />
           </ProtectedRoute>
         ),
       },
