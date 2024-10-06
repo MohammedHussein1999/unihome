@@ -1,0 +1,2305 @@
+{
+	"info": {
+		"_postman_id": "5350d040-876c-4ea4-acd0-5c6c05664e0e",
+		"name": "unihome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30808732-5350d040-876c-4ea4-acd0-5c6c05664e0e"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "teachers",
+					"id": "2da71053-09fb-44fa-a1ec-12f8e607c02b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/teachers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testings",
+					"id": "75f8aa88-85b7-4c00-9795-bba99701722f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI3MjAyOTA3LCJleHAiOjE3MjcyMDY1MDcsIm5iZiI6MTcyNzIwMjkwNywianRpIjoiOGFYTUU0VzBSME54Z1NwNSIsInN1YiI6IjUyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.iqugGRYe5vG7rWrSjDPPST9bj_PuvKA5Sc1ou7Dm5JI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/testings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student-testings",
+					"id": "2eb284a0-6c92-4e1a-b5b2-ad514025b1e2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI3MjcyNTE3LCJleHAiOjE3MjcyNzYxMTcsIm5iZiI6MTcyNzI3MjUxNywianRpIjoiWTEyNzZDdHNleEtXMEZDZyIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.irJXh8bMBzzkcyCtVwznJKiHCCL3_vrCV6ewsXpjzL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/testings/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chatUsers",
+					"id": "c115b13a-5623-450a-a114-21e7f998f73d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjY0MjI3NTYsImV4cCI6MTcyNjQyNjM1NiwibmJmIjoxNzI2NDIyNzU2LCJqdGkiOiJEMHBTTEZZNlNVU3pFeXBTIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.sYJZRwkp52QdE3Non0Z0Kjx19ARkihYGpaDm0rjdtLs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/chat/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"chat",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quizs",
+					"id": "2b63e74d-e8c0-40f0-b6d4-0be94671426a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/quizs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"quizs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "teachers Copy",
+					"id": "4d8d0dee-f7b5-4517-8d7a-fb016e95f494",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/teachers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallets",
+					"id": "2c00fc2f-b0e6-448b-9700-a0c4ce5d2bcf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MDg2Mzc0LCJleHAiOjE3MjQwODk5NzQsIm5iZiI6MTcyNDA4NjM3NCwianRpIjoiYnpydmhwcnRnUWRScnpRVSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.ZNH5T_PIamvMeCs___KvlgsqTafXLfpIy9YPlF5LdvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/auth/wallets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"wallets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"id": "0357c52a-d4c2-4c83-b38c-2043fbd2ee65",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU1NDQ4OTMsImV4cCI6MTcyNTU0ODQ5MywibmJmIjoxNzI1NTQ0ODkzLCJqdGkiOiJUZWRGUlNHcmxSS3JjVGxrIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GsILrIyDZ6UmVcmGOqNGQiO4Tc5NINYonS2y47rTMQc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/auth/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews",
+					"id": "42710517-c423-44c7-b45f-07b441c90734",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/reviews/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reviews",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usages",
+					"id": "c4e891f2-5d33-45c8-a11d-2d6279f41df6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjMzMjI3MTcsImV4cCI6MTcyMzMyNjMxNywibmJmIjoxNzIzMzIyNzE3LCJqdGkiOiJDTVVPdHRvclZWcnBTZEpTIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Vi8xP6a41hrSjgh5BaddJkX-eVtSQ-48IZYjWmSt4gQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"date\": \"2024-08-10 18:16:55\",\r\n\"amount\": 1,\r\n\"description\": \"test\",\r\n\"type\": \"test\",\r\n\"status\": 1,\r\n\"receiver_id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/usages",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sessions",
+					"id": "dd9bf871-3fe9-4a55-b492-b24382b15902",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI3MDgxMzg0LCJleHAiOjE3MjcwODQ5ODQsIm5iZiI6MTcyNzA4MTM4NCwianRpIjoic0h4TEdLWXh1dVhmWmJZcSIsInN1YiI6IjUyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.voHw_MyHud3Lw1YUFTIEWzHvnYXjPBi3muWQaboWrMg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/auth/sessions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chats",
+					"id": "2b1733ab-6321-4757-bb1b-e577cff93c0f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0Mjg1MTUwLCJleHAiOjE3MjQyODg3NTAsIm5iZiI6MTcyNDI4NTE1MCwianRpIjoiUDNrbU5DOWNPWFJnbUpBYyIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.l8yAvnhScNisb-Kdht_4AnW5nod8WjtITvcwSCzVrDE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"date\": \"2024-08-10 18:16:55\",\r\n\"amount\": 1,\r\n\"description\": \"test\",\r\n\"type\": \"test\",\r\n\"status\": 1,\r\n\"receiver_id\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/auth/chats/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"chats",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single-teacher",
+					"id": "689a5b7b-efa4-4c10-af02-f091f79edf99",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzNDE3MzM2LCJleHAiOjE3MjM0MjA5MzYsIm5iZiI6MTcyMzQxNzMzNiwianRpIjoiVFJBeFdWN29rZG5YckhGRyIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.NgqUELPG9dZcy6w2ExWdGO69lSMD-J2zCV_9hOfIkdM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/teacher/50",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"teacher",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "home",
+					"id": "e78e5cfd-e8d5-4e02-950d-a89309823d1d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/home",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "about",
+					"id": "681f4b25-f402-4cf7-a692-c5c7a6360f59",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/about",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"about"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "courses",
+					"id": "b7e3de28-cc19-47f1-af06-d12f3d96c3db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "locale",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/courses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "levels",
+					"id": "a883a500-0cc8-4aa2-b549-b284994ebbb7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/levels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single-course",
+					"id": "880578f2-9837-4fa0-ba79-cf32dcd18fbb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/course/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "table",
+					"id": "dc16e7f2-685a-4f1b-a18d-c74bdfe4404e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/sessiontables",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"sessiontables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "settings",
+					"id": "4b657a13-f616-46e5-ac3d-a023c8d9bf63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/settings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"settings"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e7086ad0-35de-43a5-88e9-0d5d527ff003"
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "login",
+					"id": "d2c319bf-08d2-4ab2-ad0e-dedb1c010c4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "nessimboula@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"id": "fc693d26-d158-491b-a651-afb1ace1dcb8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MTUyOTYwOTcsImV4cCI6MTcxNTI5OTY5NywibmJmIjoxNzE1Mjk2MDk3LCJqdGkiOiJpVk1mbENOcmZxOXRRaHhhIiwic3ViIjoiNCIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1T6KxGioAai__Kzwkc2j8WnS03yU1YzRnikwfXN8v-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-student",
+					"id": "0b9aa5f8-61e6-42ce-95c2-192f598179d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nessimboula@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01126788910",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "student",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1381).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1484).png"
+									]
+								},
+								{
+									"key": "nationalid",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1377).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1484).png"
+									]
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "whats",
+									"value": "01126785910",
+									"type": "text"
+								},
+								{
+									"key": "accept_terms",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1381).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1483).png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile-student",
+					"id": "dc7dd768-4dc2-45c4-81e4-49e6f2ef1c47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU5NzU5NjYsImV4cCI6MTcyNTk3OTU2NiwibmJmIjoxNzI1OTc1OTY2LCJqdGkiOiJSWDNBVTFucFhpdDVpNjZqIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XTHFhZF2vglXhkc4Q55etxJsLdqXg5XzCCqj-gDipuc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "test45",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tests3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01126788910",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "student",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1484).png"
+								},
+								{
+									"key": "nationalid",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1484).png"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "whats",
+									"value": "01126785910",
+									"type": "text"
+								},
+								{
+									"key": "accept_terms",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1482).png"
+								},
+								{
+									"key": "timezone",
+									"value": "ctc",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "egypt",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "social media",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/user-profile/student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"user-profile",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet",
+					"id": "40561ec5-ba85-42f4-80e2-401c375f62f6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MTU5MzU5LCJleHAiOjE3MjQxNjI5NTksIm5iZiI6MTcyNDE1OTM1OSwianRpIjoidE1OMmRhYnQ0eWxPTGNQdCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QSCR88eQBWPtIvjl0IPNFNWKgedGQdiQVm-WzmShFkM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"amount\": 100,\r\n\"description\": \"test\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/auth/wallet/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"wallet",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-teacher",
+					"id": "c43467d7-335d-4746-8d93-6845bba970a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "whats",
+									"value": "01126785910",
+									"type": "text"
+								},
+								{
+									"key": "proficiency",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "accept_terms",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tes17st@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "011264845910",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "teacher",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "intro",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "start_from",
+									"value": "2024-08-22",
+									"type": "text"
+								},
+								{
+									"key": "youtube_link",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "review",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "course_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nationalid",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1378).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1484).png"
+									]
+								},
+								{
+									"key": "cv",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1378).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1483).png"
+									]
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1483).png"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "language_id",
+									"value": "arabic",
+									"type": "text"
+								},
+								{
+									"key": "proficiency_id",
+									"value": "fluent",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/register/teacher",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile-teacher",
+					"id": "7d4e8c65-561b-4858-8a6e-f0dcb543a06a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjU5NzY0MTksImV4cCI6MTcyNTk4MDAxOSwibmJmIjoxNzI1OTc2NDE5LCJqdGkiOiJCTE5kS3JBN2V5OGM1R3M0Iiwic3ViIjoiNTIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.DhHZ5_AexO4NiMNeRa7Lbl6IdROj1zh6zBxEvKZkjdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "whats",
+									"value": "01126785910",
+									"type": "text"
+								},
+								{
+									"key": "proficiency",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "accept_terms",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tes17st@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "011264845910",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "teacher",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "intro",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "start_from",
+									"value": "2024-08-22",
+									"type": "text"
+								},
+								{
+									"key": "youtube_link",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "review",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "course_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nationalid",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1378).png",
+										"/C:/Users/User/Pictures/Screenshots/Screenshot (1483).png"
+									]
+								},
+								{
+									"key": "cv",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1482).png"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Screenshot (1483).png"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "language_id",
+									"value": "arabic",
+									"type": "text"
+								},
+								{
+									"key": "proficiency_id",
+									"value": "fluent",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Egypt",
+									"type": "text"
+								},
+								{
+									"key": "timezone",
+									"value": "cairo",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "social",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/user-profile/teacher",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"user-profile",
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "review",
+					"id": "3e7b6083-f08e-4105-9587-b6aa9b0871cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzOTM2ODkzLCJleHAiOjE3MjM5NDA0OTMsIm5iZiI6MTcyMzkzNjg5MywianRpIjoiYk9mYmZSancyNGxhNU1KaiIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.iG_H-DpsXlZ2ARzv44-S-EAsQ9s4lz2Ew6MDTGRE_UY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"teacher_id\": 1,\r\n\"comment\": \"nice teacher\",\r\n\"rate\": 5\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/auth/review",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chat",
+					"id": "f4ce1a48-24ff-48f9-9cc1-4ed9da4e2255",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MzY4NTMxLCJleHAiOjE3MjQzNzIxMzEsIm5iZiI6MTcyNDM2ODUzMSwianRpIjoiWEd5TW9BTXFZNW9GT2VwRiIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.lIcGTh9ie1D--TWxLSJFsBMLH-Zt34GOjO1pkvnwZV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"receiver_id\": 1,\r\n\"message\": \"Best teacher ever\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/auth/chat/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"chat",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quiz",
+					"id": "68f38fd9-d9bd-49ea-a0cb-6971b9b88807",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI0MzY4NTMxLCJleHAiOjE3MjQzNzIxMzEsIm5iZiI6MTcyNDM2ODUzMSwianRpIjoiWEd5TW9BTXFZNW9GT2VwRiIsInN1YiI6IjUzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.lIcGTh9ie1D--TWxLSJFsBMLH-Zt34GOjO1pkvnwZV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Mid Term Quiz\",\r\n    \"course_id\": 1,\r\n    \"level_id\": 1,\r\n    \"session\": 1,\r\n    \"questions\": [{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    },{\r\n        \"title\": \"what is value of pi\",\r\n        \"score\": 5,\r\n         \"answers\":[{\r\n          \"title\":\"3.24\",\r\n          \"correct\":0\r\n          },{\r\n             \"title\":\"3.4\",\r\n             \"correct\":1\r\n         },{\r\n            \"title\":\"3.6\",\r\n            \"correct\":0\r\n        }\r\n        ]\r\n    }]\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/quiz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testing",
+					"id": "73720299-e1d3-4f7d-a1d5-3e525327c8bd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI1ODMwMDIwLCJleHAiOjE3MjU4MzM2MjAsIm5iZiI6MTcyNTgzMDAyMCwianRpIjoiU2JwMEQxeWVaS3luaHRsZCIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.-YpDEJ_aMrBG11ce-VU257teVECKotHAi9m3lsuSqpo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"testings\": [\r\n        {\r\n        \"student_id\": 1,\r\n        \"quiz_id\": 1,\r\n        \"question_id\": 1,\r\n        \"answer_id\": 1\r\n      \r\n        },\r\n        {\r\n        \"student_id\": 1,\r\n        \"quiz_id\": 1,\r\n        \"question_id\": 1,\r\n        \"answer_id\": 1\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/testing",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"testing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sessiontables",
+					"id": "7f04d734-e4b4-4cda-97e4-b8749140faef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzNTAxMjQyLCJleHAiOjE3MjM1MDQ4NDIsIm5iZiI6MTcyMzUwMTI0MiwianRpIjoib3kyc3YzVWhZNVQzMUlyUiIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.-vHbKI6c52fGceknKvnbUujd2msIfUniJSJM8WR7CMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"date\": \"2024-08-10\",\r\n\"time\": \"18:16:55\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/sessiontable/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"sessiontable",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "session",
+					"id": "6bee8ded-9aff-45bc-ac90-68606879ec74",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzI2OTIyMzU2LCJleHAiOjE3MjY5MjU5NTYsIm5iZiI6MTcyNjkyMjM1NiwianRpIjoiSHAxUjdkbTJJZjNCakQ5eiIsInN1YiI6IjU1IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.6XpCxuyiYxpvZNst79MiYsjy1hOSyb9_9Al8kP2hMrs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"sessiontable_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/session/store",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"session",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelSession",
+					"id": "4dac7f06-55fc-41d6-9372-37b81be38361",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cancel/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cancel",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reschdeuled",
+					"id": "c00413b1-d157-4dec-84f7-0d2c8a567602",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VuaWgwbWUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzODIzMjc1LCJleHAiOjE3MjM4MjY4NzUsIm5iZiI6MTcyMzgyMzI3NSwianRpIjoiZnpwSExsaGtpVGNSTzZQSSIsInN1YiI6IjUxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.RTQVKboCI3SeRG9Ccia1h8m-eyLsf6XWaTRzx4fJEIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/reschdeule/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reschdeule",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "completed",
+					"id": "a9871b81-aaef-40a9-a67b-13ddf734a859",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjY5MjM2MDEsImV4cCI6MTcyNjkyNzIwMSwibmJmIjoxNzI2OTIzNjAxLCJqdGkiOiJmRDdsZXBKTkQ0c0dKYnBEIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hCQMX5P_8BKKzoKAxo1OkRBrwy7CJW6G47JP8AdP-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/complete/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"complete",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incompleted",
+					"id": "2b740067-a815-4b22-ae6e-9854165b7db1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjY5MjM2MDEsImV4cCI6MTcyNjkyNzIwMSwibmJmIjoxNzI2OTIzNjAxLCJqdGkiOiJmRDdsZXBKTkQ0c0dKYnBEIiwic3ViIjoiNTEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.hCQMX5P_8BKKzoKAxo1OkRBrwy7CJW6G47JP8AdP-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"session_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/incomplete/session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incomplete",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact",
+					"id": "3789ccb5-19ab-4f31-afe1-1ebe416afb5d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Boula Nessim",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "nessimboula@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "phone",
+									"value": "011267859107",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "jjfjfjjfjfjfj",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/message",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"id": "dc95855e-3efd-4269-bea9-aa5775f0ca43",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXNhYi10ZWNoLmNvbS9hc2xlbHRhd2ZlZXIvcHVibGljL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzAyMjg3MzUwLCJleHAiOjE3MDIyOTA5NTAsIm5iZiI6MTcwMjI4NzM1MCwianRpIjoiak04VTdUTkRNUkliUUpkdyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.ncGWji9q9iQoMOm3i4mrOIpPEqhylYMa1Oi2s5Zg6oY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/auth/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newsletter",
+					"id": "2d9982ad-48d7-46bf-8c55-024357e0a2a9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "newsletterEmail",
+									"value": "nessimswboula@gmail.com",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/newsletter",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"newsletter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget-password",
+					"id": "88e845dc-c33b-4c40-a826-d6b0d06e6e41",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nessimboula@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/password/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"password",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"id": "f7018183-2eea-4738-9e61-9445e0d0656b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nessimboula@gmail.com\",\r\n  \"token\": \"5fdbf559a088c9686456dd195428308d4e34a715575291f5fedada189cdf5b53\",\r\n  \"password\": \"newpassword\",\r\n  \"password_confirmation\": \"newpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/password/reset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "0c53c812-9bca-44d6-8bbd-4cef6b93d69d"
+		},
+		{
+			"name": "socials",
+			"item": [
+				{
+					"name": "redirect-auth-google",
+					"id": "565ecc3f-df2a-41f0-bbeb-d34979ab9399",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/google",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"google"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "handle-callback",
+					"id": "fff3bc49-738e-4173-9714-ea6105a017db",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/google/callback",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"google",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirect-auth-facebook",
+					"id": "1092cd60-bfd8-4154-952f-c034bb0016e4",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/facebook",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"facebook"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "b9c18a62-a33d-4888-b070-5d4783be899d"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b9ebb20d-6a6f-4105-853c-a3ea65b27529",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bbb559d0-81d6-4063-8ecf-19d654ef362a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e2aadf86-377a-4a1d-ac44-0c24ad4bc48e",
+			"key": "url",
+			"value": "https://yousab-tech.com/unihome/public/api",
+			"type": "string"
+		}
+	]
+}

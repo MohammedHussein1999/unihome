@@ -9,6 +9,7 @@ id = 1363577d-522c-4516-9fae-ecb10c48ec6c
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"30808732-5350d040-876c-4ea4-acd0-5c6c05664e0e","path":"unihome.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
